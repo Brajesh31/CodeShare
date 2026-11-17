@@ -6,6 +6,8 @@
     "audit:security": "node scripts/audit-dependencies.mjs",
     "build": "next build",
     "dev": "next dev --turbopack",
+    "docs:tree": "node scripts/generate-project-tree.mjs",
+    "docs:tree:check": "node scripts/generate-project-tree.mjs --check",
     "start": "next start",
     "test": "node --test",
     "typecheck": "tsc --noEmit",
