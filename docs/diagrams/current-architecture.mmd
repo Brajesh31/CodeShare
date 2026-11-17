@@ -1,0 +1,13 @@
+flowchart TD
+  Browser[Browser] --> Next[Next.js App Router]
+  Next --> Landing["/ - app/page.tsx"]
+  Next --> EditorRoute["/editor - app/editor/page.tsx"]
+  EditorRoute --> Shell[EditorApp client component]
+  Shell --> Editor[Editor contentEditable mock]
+  Shell --> Chat[ChatPanel local state]
+  Shell --> Presence[UserPresence static samples]
+  Editor --> LocalState[React component state]
+  Chat --> LocalState
+  Presence --> StaticData[Hard-coded sample users]
+  Backup[pagebackup.tsx] -. unreferenced experiment .-> Socket[localhost Socket.IO target]
+  Socket -. no server in repo .-> Missing[No implementation]
