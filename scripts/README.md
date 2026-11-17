@@ -14,12 +14,6 @@ Run commands from the repository root. Node.js 22 is the tested development runt
 
 ## generate-project-tree.mjs
 
-This script reads the Git index with `git ls-files`, builds a deterministic directory tree, and replaces the tracked-tree section of [docs/project-structure.md](../docs/project-structure.md). It preserves the responsibility descriptions below the tree.
-
-Run `npm run docs:tree` after adding, removing, or renaming tracked files. CI uses `npm run docs:tree:check` so stale documentation fails validation instead of being silently changed during a build.
-
-## generate-project-tree.mjs
-
 This script reads the Git index with `git ls-files`, builds a deterministic directory tree, and replaces only the tracked-tree section in [docs/project-structure.md](../docs/project-structure.md). Run `npm run docs:tree` after adding, removing, or renaming tracked paths. CI runs `npm run docs:tree:check` so stale documentation fails rather than being silently rewritten.
 
 ## validate-repository.mjs
