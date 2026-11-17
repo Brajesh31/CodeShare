@@ -97,20 +97,32 @@
     │   │   ├── test-plan.md
     │   │   ├── test-report.md
     │   │   └── threat-assessment.md
+    │   ├── access-control.md
     │   ├── accessibility-audit.md
+    │   ├── accessibility-testing.md
     │   ├── accessibility.md
+    │   ├── animation-guidelines.md
     │   ├── api-reference.md
     │   ├── api.md
     │   ├── application-lifecycle.md
     │   ├── architecture.md
+    │   ├── audit-logging.md
+    │   ├── authentication.md
+    │   ├── authorization.md
+    │   ├── backup-and-restore.md
     │   ├── building.md
     │   ├── ci-cd.md
     │   ├── code-standards.md
+    │   ├── color-contrast.md
+    │   ├── color-system.md
     │   ├── commands-reference.md
+    │   ├── compliance.md
     │   ├── component-architecture.md
     │   ├── components.md
     │   ├── configuration.md
     │   ├── data-flow.md
+    │   ├── data-privacy.md
+    │   ├── data-protection.md
     │   ├── data-retention.md
     │   ├── database-schema.md
     │   ├── database.md
@@ -120,8 +132,10 @@
     │   ├── dependency-security.md
     │   ├── deployment.md
     │   ├── design-system.md
+    │   ├── design-tokens.md
     │   ├── developer-guide.md
     │   ├── development.md
+    │   ├── encryption.md
     │   ├── environment-variables.md
     │   ├── error-handling.md
     │   ├── faq.md
@@ -129,7 +143,12 @@
     │   ├── functional-requirements.md
     │   ├── getting-started.md
     │   ├── glossary.md
+    │   ├── hosting.md
+    │   ├── incident-response.md
+    │   ├── infrastructure.md
     │   ├── installation.md
+    │   ├── integrations.md
+    │   ├── keyboard-navigation.md
     │   ├── known-issues.md
     │   ├── maintainer-guide.md
     │   ├── maintenance.md
@@ -148,7 +167,9 @@
     │   ├── responsive-design.md
     │   ├── risk-register.md
     │   ├── scope-and-limitations.md
+    │   ├── screen-reader-support.md
     │   ├── secret-management.md
+    │   ├── security-testing.md
     │   ├── security.md
     │   ├── solution-overview.md
     │   ├── technical-debt.md
@@ -156,12 +177,16 @@
     │   ├── technology-stack.md
     │   ├── test-strategy.md
     │   ├── testing.md
+    │   ├── third-party-services.md
     │   ├── threat-model.md
     │   ├── troubleshooting.md
+    │   ├── typography.md
     │   ├── ui-ux-guidelines.md
     │   ├── use-cases.md
     │   ├── user-journeys.md
-    │   └── user-personas.md
+    │   ├── user-personas.md
+    │   ├── vulnerability-management.md
+    │   └── wcag-compliance.md
     ├── public/
     │   ├── file.svg
     │   ├── globe.svg
