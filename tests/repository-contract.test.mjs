@@ -82,6 +82,9 @@ test("documentation indexes the complete project reference set", () => {
   assert.match(read("docs/README.md"), /Functional requirements/);
   assert.match(read("docs/README.md"), /Risk register/);
   assert.match(read("docs/README.md"), /Accessibility audit/);
+  assert.match(read("docs/README.md"), /Security architecture/);
+  assert.match(read("docs/README.md"), /Data deletion/);
+  assert.match(read("docs/README.md"), /Disaster recovery/);
   assert.match(read("docs/project-structure.md"), /repository-contract\.test\.mjs/);
 });
 
@@ -122,8 +125,8 @@ test("security remediation is explicitly tracked and not falsely marked resolved
   assert.equal(manifest.dependencies.next, "15.3.1");
   assert.match(security, /15\.3\.1/);
   assert.match(security, /15\.5\.29/);
-  assert.match(security, /not been applied or verified/i);
-  assert.match(security, /Do not deploy/i);
+  assert.match(security, /not a completed update/i);
+  assert.match(security, /A green quality workflow is not a security clearance/i);
 });
 
 test("quality workflow checks the generated project tree and citation metadata", () => {
