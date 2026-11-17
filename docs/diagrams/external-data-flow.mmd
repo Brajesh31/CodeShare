@@ -1,0 +1,9 @@
+flowchart LR
+    A[Visitor browser] --> B[CodeShare UI]
+    B --> C[Local editor state]
+    B --> D[Local chat state]
+    B --> E[Static sample presence]
+    B -. avatar image requests .-> F[pravatar.cc]
+    G[Build process] -. font asset fetch/build integration .-> H[Google font source]
+    C -. no app backend .-> I[No server storage]
+    D -. no message transport .-> I
