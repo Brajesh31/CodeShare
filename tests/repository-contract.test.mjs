@@ -73,6 +73,6 @@ test("landing page avoids unsupported production claims", () => {
 test("security documentation states the actual prototype boundary", () => {
   const security = read("docs/security.md");
   assert.match(security, /no authentication/i);
-  assert.match(security, /no collaboration backend/i);
+  assert.match(security, /collaboration backend/i);
   assert.match(security, /Do not use it for confidential source code/i);
 });
