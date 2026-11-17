@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { AppShell, Burger, Group, Text, Button } from '@mantine/core';
+import { Burger, Text, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MessageSquare, Users, Code, Settings, Moon, Sun } from 'lucide-react';
+import { MessageSquare, Moon, Sun } from 'lucide-react';
 import Editor from './Editor';
 import ChatPanel from './ChatPanel';
 import UserPresence from './UserPresence';
@@ -11,7 +11,6 @@ const EditorApp: React.FC = () => {
   }] = useDisclosure();
   const [chatOpened, setChatOpened] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [activeTab, setActiveTab] = useState('editor');
   const toggleChat = () => setChatOpened(!chatOpened);
   const toggleTheme = () => setDarkMode(!darkMode);
   return <div className={`w-full h-screen flex flex-col ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
