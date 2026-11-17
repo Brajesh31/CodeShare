@@ -147,7 +147,7 @@ The logo, banner, and architecture diagram are original static SVG assets. They 
 
 ## 📚 Documentation
 
-Start at [docs/README.md](docs/README.md). The handbook covers product requirements, architecture, development, UX, privacy, security, QA, deployment, runbooks, diagrams, and reusable engineering templates.
+Start at [docs/README.md](docs/README.md). The handbook covers product requirements, architecture, development, UX, privacy, security, QA, deployment, operations, runbooks, diagrams, and reusable engineering templates. See [docs/project-structure.md](docs/project-structure.md) for the generated tracked-file tree and [docs/test-coverage.md](docs/test-coverage.md) for the automated/manual coverage boundary.
 
 Useful entry points:
 - [Getting started](docs/getting-started.md)
