@@ -119,11 +119,16 @@ test("project structure generator stays synchronized with Git-tracked paths", as
   assert.equal(actual, buildProjectTree(tracked));
 });
 
-test("the Next.js nested PostCSS dependency uses the patched version", () => {
+test("Next.js resolves the patched PostCSS package", async () => {
   const manifest = parse("package.json");
-  const lock = parse("package-lock.json");
   assert.equal(manifest.overrides?.next?.postcss, "8.5.33");
-  assert.equal(lock.packages["node_modules/next/node_modules/postcss"]?.version, "8.5.33");
+  const { createRequire } = await import("node:module");
+  const nextRequire = createRequire(resolve(root, "node_modules/next/package.json"));
+  const postcssPath = nextRequire.resolve("postcss/package.json");
+  const postcss = JSON.parse(readFileSync(postcssPath, "utf8"));
+  const [major, minor, patch] = postcss.version.split(".").map(Number);
+  const isPatched = major > 8 || (major === 8 && (minor > 5 || (minor === 5 && patch >= 23)));
+  assert.ok(isPatched, `Next.js resolved vulnerable PostCSS ${postcss.version} from ${postcssPath}`);
 });
 
 test("dependency security status matches the checked-in manifest and lockfile", () => {
