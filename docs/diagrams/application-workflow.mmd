@@ -1,0 +1,16 @@
+flowchart TD
+    A[Visitor requests application] --> B[Next.js App Router]
+    B --> C{Requested route}
+    C -->|/| D[Landing page]
+    C -->|/editor| E[Editor workspace]
+    D --> F[Read prototype scope]
+    F --> G[Open editor link]
+    G --> E
+    E --> H[Editor component]
+    E --> I[Chat panel]
+    E --> J[Static sample presence]
+    H --> K[Local React state]
+    I --> K
+    J --> L[Static source values]
+    K --> M[Current browser only]
+    M --> N[Reload resets state]
