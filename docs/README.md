@@ -35,6 +35,10 @@ This handbook describes the repository as it exists today: a Next.js App Router 
 - [Reusable contribution templates](templates/README.md)
 - [Scripts and checks](../scripts/README.md)
 
+## 🧪 Automated checks
+
+Run `npm test`, `npm run typecheck`, `npm run validate`, and `npm run build`. The tests protect repository contracts and prototype disclosures; they do not replace browser-level tests. See [testing.md](testing.md).
+
 ## ⚠️ Scope disclaimer
 
 The current editor, chat, AI, connection status, and presence are prototype UI. The editor is a `contentEditable` element. Chat and editor state are local to the browser. The AI response is canned. No collaboration server, auth layer, API, database, or model provider is included.
