@@ -40,17 +40,32 @@ jobs:
         run: npm run validate
       - name: Build Next.js app
         run: npm run build
-      - name: Parse YAML metadata
+      - name: Parse all GitHub YAML metadata
         run: |
           python - <<'PY'
           from pathlib import Path
           import yaml
-          files = [Path(".github/workflows/quality-checks.yml"), Path(".github/dependabot.yml")]
-          files += list(Path(".github/ISSUE_TEMPLATE").glob("*.yml"))
-          files += list(Path(".github/DISCUSSION_TEMPLATE").glob("*.yml"))
+          roots = [Path(".github/workflows"), Path(".github/ISSUE_TEMPLATE"), Path(".github/DISCUSSION_TEMPLATE")]
+          files = [Path(".github/dependabot.yml")]
+          for root in roots:
+              files.extend(root.glob("*.yml"))
           for path in files:
               yaml.safe_load(path.read_text())
               print("Valid YAML:", path)
           PY
-      - name: Verify Mermaid sources
-        run: find docs/diagrams -name '*.mmd' -type f -size +0c -print | grep .
+      - name: Verify Mermaid sources are present
+        run: |
+          count=$(find docs/diagrams -name '*.mmd' -type f -size +0c | wc -l)
+          test "$count" -ge 10
+          echo "Verified $count non-empty Mermaid sources."
+      - name: Verify SVG assets are valid XML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          files = list(Path("docs/assets").glob("*.svg"))
+          assert len(files) >= 3, "Expected logo, banner, and architecture SVG assets"
+          for path in files:
+              ET.parse(path)
+              print("Valid SVG:", path)
+          PY
