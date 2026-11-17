@@ -36,6 +36,8 @@ jobs:
         run: npm test
       - name: Type check
         run: npm run typecheck
+      - name: Check generated project structure
+        run: npm run docs:tree:check
       - name: Validate repository files and docs
         run: npm run validate
       - name: Build Next.js app
