@@ -1,0 +1,57 @@
+name: CodeShare Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: TypeScript, build, and repository checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Validate repository files and docs
+        run: node scripts/validate-repository.mjs
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Parse YAML metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          files = [Path(".github/workflows/quality-checks.yml"), Path(".github/dependabot.yml")]
+          files += list(Path(".github/ISSUE_TEMPLATE").glob("*.yml"))
+          files += list(Path(".github/DISCUSSION_TEMPLATE").glob("*.yml"))
+          for path in files:
+              yaml.safe_load(path.read_text())
+              print("Valid YAML:", path)
+          PY
+
+      - name: Verify Mermaid sources
+        run: find docs/diagrams -name '*.mmd' -type f -size +0c -print | grep .
