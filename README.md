@@ -1,77 +1,174 @@
-# CodeShare (CodeCollab prototype)
+# 💻 CodeShare
 
-CodeShare is a Next.js prototype for a collaborative coding workspace. It includes a landing page, an editor screen, a team-chat panel, an AI-chat tab, a dark-mode toggle, and a user-presence display.
+**CodeShare (CodeCollab prototype)** is a Next.js application exploring a collaborative coding workspace. The repository currently provides a landing page and an interactive local editor/chat UI.
 
-**The current project is a UI prototype, not a working real-time collaboration service.** Code edits and chat stay in component state; the “Connected” status and three-user presence are hard-coded; the AI tab returns a fixed placeholder response. There is no server, authentication, API, database, real model integration, or active socket connection on the routed pages.
+<p align="center">
+  <img src="docs/assets/architecture-overview.svg" alt="CodeShare current architecture overview" width="950">
+</p>
 
-## Routes and current behavior
+<p align="center">
+  <a href="https://github.com/Brajesh31/CodeShare/actions/workflows/quality-checks.yml"><img src="https://github.com/Brajesh31/CodeShare/actions/workflows/quality-checks.yml/badge.svg" alt="Quality checks"></a>
+  <img src="https://img.shields.io/badge/Next.js-15.3.1-black?logo=nextdotjs" alt="Next.js 15">
+  <img src="https://img.shields.io/badge/React-19-149eca?logo=react" alt="React 19">
+  <img src="https://img.shields.io/badge/TypeScript-5-blue?logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Mantine-7-339af0" alt="Mantine">
+  <img src="https://img.shields.io/badge/Status-UI%20prototype-orange" alt="UI prototype">
+</p>
 
-| Route | What it currently shows |
-| --- | --- |
-| `/` | CodeCollab landing page with feature descriptions and a link to the editor |
-| `/editor` | Local editor mock, theme toggle, sample presence, team/AI chat tabs |
+> **Important:** This is a UI prototype, not a live collaborative coding service. The editor and chat store state in the current browser tab. Presence is hard-coded, the AI tab returns a canned reply, and no authentication, collaboration server, database, model provider, or persistence layer exists in this repository.
 
-On `/editor`, the editor is a `contentEditable` `<pre>` with sample JavaScript, not a language-aware code editor. Selecting a language changes local UI state only. Team messages are appended locally. The AI tab waits briefly and appends a canned reply; no prompt is sent to a model.
+## 📑 Contents
 
-## Requirements
+- [✨ Current features](#-current-features)
+- [⚠️ Implemented behavior versus mock UI](#️-implemented-behavior-versus-mock-ui)
+- [🚀 Getting started](#-getting-started)
+- [🧭 Routes](#-routes)
+- [🗂️ Project structure](#️-project-structure)
+- [🧪 Validation](#-validation)
+- [🔐 Security and privacy](#-security-and-privacy)
+- [🧱 Roadmap](#-roadmap)
+- [📚 Documentation](#-documentation)
 
-- Node.js and npm
-- A modern browser with JavaScript enabled
+## ✨ Current features
 
-No API credentials are needed for the current prototype. Do not enter confidential source code or chat data into a future network-connected version until its server, access controls, and data handling are implemented and reviewed.
+- Next.js App Router landing page.
+- `/editor` workspace route.
+- Editable sample code using a browser `contentEditable` element.
+- Local language selector, theme toggle, and chat panel state.
+- Team chat UI with messages held in React state.
+- AI assistant tab with a fixed placeholder answer.
+- Static sample user avatars and presence display.
+- Mantine components, Tailwind utilities, and Lucide icons.
 
-## Run locally
+## ⚠️ Implemented behavior versus mock UI
 
-```sh
+| Capability | Current reality |
+|---|---|
+| Landing page | Implemented UI |
+| Editor | Local `contentEditable` text area, not Monaco/CodeMirror |
+| Language selector | Local selection state only |
+| Real-time code synchronization | **Not implemented** |
+| Team chat across browsers | **Not implemented**, messages stay local |
+| AI code assistant | **Not implemented**, response is canned |
+| Online presence | **Not implemented**, users are hard-coded |
+| Authentication and private rooms | **Not implemented** |
+| Database and saved documents | **Not implemented** |
+| Voice chat | Coming soon copy only |
+| Socket.IO | Unreferenced experiment in `pagebackup.tsx`; no server exists |
+
+Do not use this prototype to share confidential source code or private team messages under the assumption that collaboration rooms or accounts are protected.
+
+## 🚀 Getting started
+
+### Requirements
+
+- Node.js compatible with Next.js 15.3.1
+- npm
+- Git
+- Modern browser
+
+### Install and run
+
+```bash
+git clone https://github.com/Brajesh31/CodeShare.git
+cd CodeShare
 npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000` in a browser. Use **Launch Editor** or visit `/editor` directly.
+Open `http://localhost:3000`. Visit `/` for the landing page and `/editor` for the workspace.
 
-## Available scripts
+### Production build
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start Next.js with Turbopack |
-| `npm run build` | Build the Next.js application |
-| `npm start` | Start the built Next.js application |
-| `npm run lint` | Run the configured Next.js lint command |
-
-There is no automated test script in `package.json`.
-
-## Project layout
-
-```text
-app/
-  page.tsx                 CodeCollab landing page
-  editor/page.tsx          Editor route
-  components/
-    EditorApp.tsx          Workspace layout and local UI state
-    Editor.tsx             Editable sample code pane
-    ChatPanel.tsx          Local team-chat and canned AI tabs
-    UserPresence.tsx       Static sample users
-  layout.tsx               Root metadata, fonts, and Mantine provider
-pagebackup.tsx             Unrouted Socket.IO experiment
+```bash
+npm run build
+npm start
 ```
 
-See [docs/architecture.md](docs/architecture.md), [docs/development.md](docs/development.md), and [docs/troubleshooting.md](docs/troubleshooting.md) for the current implementation and its limits.
+### Type checking
 
-## Important limitations
+```bash
+npx tsc --noEmit
+```
 
-- Real-time editor synchronization is not implemented.
-- Chat is local-only and disappears when the page reloads.
-- The AI assistant is a fixed canned response, not an AI service.
-- User presence and “Connected” indicators are hard-coded sample UI.
-- No API or Socket.IO server exists. `pagebackup.tsx` is an unreferenced experiment that targets `ws://localhost:3000/` and should not be treated as a working backend.
-- The root layout still has generic Next.js starter metadata; the app is a prototype rather than a production-ready collaboration product.
+The current package does not define a test script. See [docs/testing.md](docs/testing.md).
 
-## Contributing, support, and security
+## 🧭 Routes
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Use [SUPPORT.md](SUPPORT.md) for ordinary questions and [SECURITY.md](SECURITY.md) for private reports. The [ROADMAP.md](ROADMAP.md) records possible work without delivery promises.
+| Route | File | Description |
+|---|---|---|
+| `/` | `app/page.tsx` | CodeCollab landing page |
+| `/editor` | `app/editor/page.tsx` | Local editor, team/AI chat UI, theme and static presence |
 
-## License
+No `app/api` routes or supported WebSocket endpoints are present.
 
-The MIT grant in [LICENSE](LICENSE) applies to original CodeShare source and documentation authored by Brajesh Kumar (`@brajesh31`) within the stated scope. Framework starter material, icons, dependencies, and other third-party content remain under their respective terms.
+## 🗂️ Project structure
 
-Last updated: 2026-11-17 19:43 UTC
+```text
+.
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   ├── DISCUSSION_TEMPLATE/
+│   ├── workflows/
+│   └── PULL_REQUEST_TEMPLATE.md
+├── app/
+│   ├── components/
+│   │   ├── ChatPanel.tsx
+│   │   ├── Editor.tsx
+│   │   ├── EditorApp.tsx
+│   │   └── UserPresence.tsx
+│   ├── editor/page.tsx
+│   ├── layout.tsx
+│   └── page.tsx
+├── docs/
+│   ├── assets/
+│   ├── diagrams/
+│   ├── runbooks/
+│   └── templates/
+├── scripts/
+│   └── validate-repository.mjs
+├── package.json
+├── package-lock.json
+├── pagebackup.tsx
+├── next.config.ts
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
+`pagebackup.tsx` is not an active App Router route. It is kept as an unreferenced Socket.IO experiment.
+
+## 🧪 Validation
+
+The repository quality workflow runs `npm ci`, `npx tsc --noEmit`, repository validation, `npm run build`, YAML parsing, and Mermaid source checks.
+
+A successful type check/build verifies compilation, not real-time collaboration, AI, authentication, data protection, or full accessibility. Manual route checks are still required.
+
+## 🔐 Security and privacy
+
+The app does not currently implement a server-side trust boundary for editor or chat content. Do not put secrets in browser code or `NEXT_PUBLIC_*` variables. Avatar images may be loaded from pravatar.cc; Next font assets are configured through `next/font/google`.
+
+Read [SECURITY.md](SECURITY.md), [PRIVACY.md](PRIVACY.md), and [docs/security.md](docs/security.md) before proposing networked features.
+
+## 🧱 Roadmap
+
+1. Decide and document the intended product scope.
+2. Establish authentication, user identity, and server-authorized rooms before real collaboration.
+3. Design WebSocket/Socket.IO lifecycle, document synchronization, reconnect, and presence.
+4. Add persistence, backups, retention, and deletion.
+5. Add a real code editor engine with language services.
+6. Add a server-side AI provider proxy with explicit privacy controls.
+7. Add browser integration tests, authorization tests, and accessibility review.
+
+See [ROADMAP.md](ROADMAP.md). This is a proposed direction, not a delivery promise.
+
+## 📚 Documentation
+
+Start at [docs/README.md](docs/README.md). The handbook covers product behavior, architecture, components, routes, configuration, dependencies, security, privacy, data, deployment, testing, accessibility, runbooks, diagrams, and reusable templates.
+
+## 🤝 Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md), [GOVERNANCE.md](GOVERNANCE.md), and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Use the issue and PR templates. Report security concerns privately according to [SECURITY.md](SECURITY.md).
+
+## 📄 License
+
+The single MIT license is attributed to **Brajesh Kumar (@brajesh31)** and applies only to original CodeShare source and documentation within the stated scope. Next.js starter content, dependencies, external avatars, fonts, icons, and other third-party materials remain subject to their own licenses. See [LICENSE](LICENSE).
