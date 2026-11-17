@@ -11,7 +11,7 @@ This roadmap describes possible product and engineering work. It has no delivery
 - [x] Add current-state Mermaid diagrams and original SVG project identity assets.
 - [x] Add issue, discussion, and pull request templates.
 - [x] Add npm and GitHub Actions dependency automation.
-- [x] Add repository validation, package contract tests, and CI quality checks.
+- [x] Add repository validation, package contract tests, and CI quality checks.\n- [x] Generate and validate the complete tracked-file tree from Git.\n- [x] Add explicit security, accessibility, hosting, integration, and compliance boundary guides.
 - [x] Add CodeQL analysis and pull-request dependency review.
 - [x] Correct the landing page and editor status copy to disclose local-only behavior.
 
