@@ -62,7 +62,7 @@ Do not use this prototype to share confidential source code or private team mess
 
 ### Requirements
 
-- Node.js compatible with Next.js 15.3.1
+- Node.js 20.9.0 or newer, Node 22 is pinned in `.nvmrc`
 - npm
 - Git
 - Modern browser
@@ -85,13 +85,16 @@ npm run build
 npm start
 ```
 
-### Type checking
+### Quality checks
 
 ```bash
-npx tsc --noEmit
+npm test
+npm run typecheck
+npm run validate
+npm run audit:security
 ```
 
-The current package does not define a test script. See [docs/testing.md](docs/testing.md).
+The Node-native tests cover repository contracts and prototype disclosures. They do not replace browser interaction tests. See [docs/testing.md](docs/testing.md).
 
 ## 🧭 Routes
 
@@ -126,7 +129,11 @@ No `app/api` routes or supported WebSocket endpoints are present.
 │   ├── runbooks/
 │   └── templates/
 ├── scripts/
+│   ├── audit-dependencies.mjs
 │   └── validate-repository.mjs
+├── tests/
+│   └── repository-contract.test.mjs
+├── .nvmrc
 ├── package.json
 ├── package-lock.json
 ├── pagebackup.tsx
