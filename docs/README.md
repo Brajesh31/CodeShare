@@ -35,6 +35,7 @@ This handbook describes the checked-in CodeShare repository. It separates curren
 - [Dependencies](dependencies.md)
 - [Dependency security](dependency-security.md)
 - [Performance](performance.md)
+- [Third-party services and assets](third-party-services.md)
 - [Data flow](data-flow.md)
 - [Database schema status](database-schema.md)
 - [API and route reference](api-reference.md)
@@ -101,6 +102,11 @@ The target is WCAG 2.2 AA where applicable. The repository does not claim confor
 - [Hosting](hosting.md)
 - [Infrastructure](infrastructure.md)
 - [Deployment](deployment.md)
+- [Hosting](hosting.md)
+- [Production setup](production-setup.md)
+- [Operations](operations.md)
+- [Monitoring and observability](monitoring.md)
+- [Health checks](health-checks.md)
 - [CI/CD and GitHub Actions](ci-cd.md)
 - [Release process](release-process.md)
 - [Maintenance guide](maintenance.md)
@@ -113,6 +119,7 @@ The target is WCAG 2.2 AA where applicable. The repository does not claim confor
 - [Quality assurance](qa.md)
 - [Accessibility testing](accessibility-testing.md)
 - [Known issues](known-issues.md)
+- [Test coverage and gaps](test-coverage.md)
 
 ## 🗺️ Visual documentation and operations
 
