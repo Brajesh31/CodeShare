@@ -1,14 +1,16 @@
 # 🗺️ Architecture Diagrams
 
-These Mermaid diagrams describe the current repository and explicitly marked proposed future systems.
+These diagrams describe the current implementation and one explicitly proposed future design.
 
-| Diagram | Purpose |
+<p align="center">
+  <img src="../assets/architecture-overview.svg" alt="CodeShare current component architecture" width="950">
+</p>
+
+| Diagram | Meaning |
 |---|---|
-| [Current component architecture](current-architecture.mmd) | Current routed app and client state |
-| [UI interaction flow](ui-flow.mmd) | Landing/editor/chat flow |
+| [Current architecture](current-architecture.mmd) | Actual Next.js routes and UI components |
+| [UI flow](ui-flow.mmd) | Current landing/editor/chat interactions |
 | [Current data boundary](current-data-boundary.mmd) | Local-only state and no persistence |
-| [Future collaboration architecture](future-collaboration.mmd) | Proposed server-side collaboration boundary, not implemented |
-| [CI and release flow](ci-release-flow.mmd) | Quality checks and deployment steps |
-| [Trust and security boundaries](security-boundaries.mmd) | Browser, client, server and provider trust boundaries |
-
-The SVG overview at [../assets/architecture-overview.svg](../assets/architecture-overview.svg) is an original visual summary of the current prototype.
+| [Future collaboration architecture](future-collaboration.mmd) | Proposed production design, not implemented |
+| [CI and release flow](ci-release-flow.mmd) | Quality and release gates |
+| [Security boundaries](security-boundaries.mmd) | Current external requests and missing services |
