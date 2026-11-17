@@ -1,0 +1,11 @@
+flowchart LR
+  User[Browser user] --> UI[React client components]
+  UI --> Editor[Editor text in React state]
+  UI --> Chat[Chat messages in React state]
+  UI --> Theme[Theme and panel state]
+  UI --> Presence[Static sample users]
+  UI --> FakeAI[Fixed AI placeholder response]
+  Editor -. not persisted .-> Reset[Page reload clears state]
+  Chat -. not sent to server .-> Reset
+  UI -. no API route .-> NoBackend[No app backend]
+  UI -. no database .-> NoDB[No persistence layer]
