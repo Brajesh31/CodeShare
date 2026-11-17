@@ -104,7 +104,7 @@ There are no app/api routes or supported WebSocket endpoints.
 
 The repository contains application source, governance files, CI/security workflows, scripts, tests, diagrams, runbooks, and engineering templates.
 
-See [docs/project-structure.md](docs/project-structure.md) for the complete tracked-file tree and file-by-file responsibilities. See [docs/README.md](docs/README.md) for the complete documentation index.
+See [docs/project-structure.md](docs/project-structure.md) for the complete tracked-file tree and file-by-file responsibilities. Regenerate it after path changes with `npm run docs:tree`. See [docs/README.md](docs/README.md) for the complete documentation index.
 
 ## 🧪 Quality checks
 
@@ -113,6 +113,7 @@ Run the complete local check sequence:
     npm ci
     npm test
     npm run typecheck
+    npm run docs:tree:check
     npm run validate
     npm run audit:security
     npm run build
