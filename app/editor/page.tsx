@@ -24,7 +24,7 @@ const EditorApp: React.FC = () => {
           <div className="flex items-center gap-2">
             <Burger opened={opened} onClick={toggle} size="sm" />
             <Text size="lg" fw={700}>
-              CodeCollab
+              CodeShare
             </Text>
           </div>
           <div className="flex items-center gap-2">
@@ -62,12 +62,12 @@ const EditorApp: React.FC = () => {
           <div
             className={`px-2 py-1 text-xs rounded ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}
           >
-            Connected
+            Local demo
           </div>
           <div
             className={`px-2 py-1 text-xs rounded ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}
           >
-            3 users online
+            3 sample profiles
           </div>
         </div>
         <Button
