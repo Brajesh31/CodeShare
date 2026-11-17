@@ -1,0 +1,48 @@
+name: '🐛 Bug report'
+description: Report a reproducible CodeShare UI or build issue
+title: '[Bug]: '
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: 'Search existing issues first. Never include private source code, credentials, or personal data.'
+  - type: input
+    id: route
+    attributes:
+      label: Route
+      placeholder: / or /editor
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit SHA
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, version, and operating system
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized console/build output
+      description: Remove tokens, private URLs, and local usernames.
