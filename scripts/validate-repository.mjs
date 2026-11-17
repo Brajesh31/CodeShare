@@ -117,7 +117,7 @@ try {
     cwd: root,
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
-  }).split(/\\r?\\n/).filter(Boolean);
+  }).split(/\r?\n/).filter(Boolean);
 } catch (error) {
   failures.push(`Unable to read Git tracked files: ${error.message}`);
 }
@@ -132,8 +132,8 @@ if (trackedPaths) {
   } else {
     const expected = buildProjectTree(trackedPaths);
     const actualSection = treeDoc.slice(start, end);
-    const actualLines = actualSection.split(/\\r?\\n/).slice(2);
-    const actualTree = actualLines.map((line) => line.startsWith("    ") ? line.slice(4) : line).filter(Boolean).join("\\n");
+    const actualLines = actualSection.split(/\r?\n/).slice(2);
+    const actualTree = actualLines.map((line) => line.startsWith("    ") ? line.slice(4) : line).filter(Boolean).join("\n");
     if (actualTree !== expected) failures.push("docs/project-structure.md is out of date; run npm run docs:tree.");
   }
 }
