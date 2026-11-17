@@ -1,0 +1,13 @@
+flowchart TD
+    A[Approved source change] --> B[Pull request checks]
+    B --> C{All required checks pass?}
+    C -->|No| D[Fix or document blocker]
+    D --> B
+    C -->|Yes| E[Merge to main]
+    E --> F[Build production artifact]
+    F --> G[Manual deployment decision]
+    G --> H[Smoke test deployed routes]
+    H --> I{Expected behavior?}
+    I -->|No| J[Rollback according to host procedure]
+    I -->|Yes| K[Record deployed revision]
+    Note[No deployment target or automated deployment workflow is currently configured.]
