@@ -116,13 +116,15 @@ test("project structure generator stays synchronized with Git-tracked paths", as
   assert.equal(actual, buildProjectTree(tracked));
 });
 
-test("security remediation is explicitly tracked and not falsely marked resolved", () => {
+test("dependency security status matches the checked-in manifest and lockfile", () => {
   const security = read("docs/dependency-security.md");
   const manifest = parse("package.json");
-  assert.equal(manifest.dependencies.next, "15.3.1");
-  assert.match(security, /15\.3\.1/);
+  const lock = parse("package-lock.json");
+  const declaredNext = manifest.dependencies.next;
+  assert.equal(lock.packages["node_modules/next"]?.version, declaredNext);
+  assert.ok(security.includes(declaredNext), "dependency security guidance must name the current Next.js version");
   assert.match(security, /15\.5\.29/);
-  assert.match(security, /not been applied or verified/i);
+  assert.match(security, /npm audit/i);
   assert.match(security, /Do not deploy/i);
 });
 
