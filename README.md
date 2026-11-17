@@ -126,7 +126,7 @@ Separate workflows run CodeQL analysis for JavaScript/TypeScript and dependency 
 
 The current app has no server-side trust boundary for editor or chat content. Do not enter confidential code, credentials, or private team discussions. Never place private keys in browser code or NEXT_PUBLIC_ variables.
 
-The dependency audit has reported unresolved advisories. CI surfaces the package/severity summary, but this reporting step does not remediate dependencies or block the build by advisory count. Review [dependency security](docs/dependency-security.md) and [known issues](docs/known-issues.md) before any production deployment.
+The dependency audit has reported 8 advisories, including a critical Next.js finding. The repository still pins Next.js 15.3.1; npm identified 15.5.29 as the remediation candidate, but the update has not yet been applied to the lockfile. Do not deploy the current dependency tree to production. See [dependency security and remediation](docs/dependency-security.md) for the required upgrade and verification sequence.
 
 Read [SECURITY.md](SECURITY.md), [PRIVACY.md](PRIVACY.md), [threat model](docs/threat-model.md), and [secret management](docs/secret-management.md) before proposing networked features.
 
