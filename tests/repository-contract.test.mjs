@@ -125,7 +125,7 @@ test("dependency security status matches the checked-in manifest and lockfile", 
   assert.ok(security.includes(declaredNext), "dependency security guidance must name the current Next.js version");
   assert.match(security, /15\.5\.29/);
   assert.match(security, /npm audit/i);
-  assert.match(security, /Do not deploy/i);
+  assert.match(security, /block production deployment/i);
 });
 
 test("quality workflow checks the generated project tree and citation metadata", () => {
