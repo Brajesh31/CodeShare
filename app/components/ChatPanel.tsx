@@ -34,8 +34,8 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
   }]);
   const [aiMessages, setAiMessages] = useState<Message[]>([{
     id: 1,
-    sender: 'AI Assistant',
-    content: "Hello! I'm your AI coding assistant. How can I help you today?",
+    sender: 'AI Preview',
+    content: "This is the AI chat preview. No model provider is connected; messages receive a fixed demo response.",
     timestamp: new Date(Date.now() - 60000),
     isAi: true
   }]);
@@ -62,8 +62,8 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
       setTimeout(() => {
         const aiResponse: Message = {
           id: Date.now() + 1,
-          sender: 'AI Assistant',
-          content: "I'll help you with that. Could you provide more details about what you're trying to accomplish?",
+          sender: 'AI Preview',
+          content: "This is a fixed demo response. No AI model is connected to CodeShare yet.",
           timestamp: new Date(),
           isAi: true
         };
@@ -117,7 +117,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
       </ScrollArea>
       <div className={`p-3 border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
         <div className="flex gap-2">
-          <TextInput placeholder={activeTab === 'team' ? 'Message your team...' : 'Ask the AI assistant...'} value={message} onChange={e => setMessage(e.target.value)} onKeyDown={handleKeyDown} className="flex-1" size="sm" />
+          <TextInput placeholder={activeTab === 'team' ? 'Message your team...' : 'Try the AI preview...'} value={message} onChange={e => setMessage(e.target.value)} onKeyDown={handleKeyDown} className="flex-1" size="sm" />
           <Button size="sm" onClick={handleSendMessage}>
             <Send size={16} />
           </Button>
