@@ -78,6 +78,8 @@ The target is WCAG 2.2 AA where applicable. The repository does not claim confor
 ## 🔐 Security and privacy
 
 - [Security model](security.md)
+- [Security architecture](security-architecture.md)
+- [Security risk register](security-risk-register.md)
 - [Threat model](threat-model.md)
 - [Authentication status](authentication.md)
 - [Authorization status](authorization.md)
@@ -86,11 +88,13 @@ The target is WCAG 2.2 AA where applicable. The repository does not claim confor
 - [Encryption](encryption.md)
 - [Data protection](data-protection.md)
 - [Data privacy](data-privacy.md)
-- [Data retention and deletion](data-retention.md)
+- [Data retention](data-retention.md)
+- [Data deletion](data-deletion.md)
 - [Vulnerability management](vulnerability-management.md)
 - [Security testing](security-testing.md)
 - [Incident response](incident-response.md)
 - [Backup and restore](backup-and-restore.md)
+- [Disaster recovery](disaster-recovery.md)
 - [Audit logging](audit-logging.md)
 - [Risk register](risk-register.md)
 - [Compliance and legal considerations](compliance.md)
