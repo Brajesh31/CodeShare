@@ -1,0 +1,11 @@
+flowchart TD
+    A[Change proposed] --> B[Add or update contract tests]
+    B --> C[npm test]
+    C --> D[npm run typecheck]
+    D --> E[npm run validate]
+    E --> F[npm run build]
+    F --> G[Manual browser smoke tests]
+    G --> H{Evidence complete?}
+    H -->|No| I[Record remaining gaps]
+    H -->|Yes| J[Request review]
+    I --> J
