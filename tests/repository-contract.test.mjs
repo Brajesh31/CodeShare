@@ -115,3 +115,19 @@ test("project structure generator stays synchronized with Git-tracked paths", as
   const actual = actualLines.map((line) => line.startsWith("    ") ? line.slice(4) : line).filter(Boolean).join("\n");
   assert.equal(actual, buildProjectTree(tracked));
 });
+
+test("security remediation is explicitly tracked and not falsely marked resolved", () => {
+  const security = read("docs/dependency-security.md");
+  const manifest = parse("package.json");
+  assert.equal(manifest.dependencies.next, "15.3.1");
+  assert.match(security, /15\.3\.1/);
+  assert.match(security, /15\.5\.29/);
+  assert.match(security, /not been applied or verified/i);
+  assert.match(security, /Do not deploy/i);
+});
+
+test("quality workflow checks the generated project tree and citation metadata", () => {
+  const workflow = read(".github/workflows/quality-checks.yml");
+  assert.match(workflow, /npm run docs:tree:check/);
+  assert.match(workflow, /CITATION\.cff/);
+});
