@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Next.js-15.3.1-black?logo=nextdotjs" alt="Next.js 15.3.1">
   <img src="https://img.shields.io/badge/React-19-149eca?logo=react" alt="React 19">
   <img src="https://img.shields.io/badge/TypeScript-5-blue?logo=typescript" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Mantine-7-339af0" alt="Mantine">
+  <img src="https://img.shields.io/badge/Mantine-7-339af0" alt="Mantine">\n  <img src="https://img.shields.io/badge/Version-0.1.0-informational" alt="Version 0.1.0">\n  <img src="https://img.shields.io/badge/License-MIT%20(scoped)-blue.svg" alt="Scoped MIT license">
   <img src="https://img.shields.io/badge/Status-UI%20prototype-orange" alt="UI prototype">
   <img src="https://img.shields.io/github/stars/Brajesh31/CodeShare?style=flat" alt="GitHub stars">
   <img src="https://img.shields.io/github/issues/Brajesh31/CodeShare?style=flat" alt="Open issues">
@@ -118,7 +118,7 @@ Run the complete local check sequence:
     npm run audit:security
     npm run build
 
-GitHub Actions runs the quality workflow on pushes, pull requests, and a weekly schedule. It installs the lockfile, reports npm advisories, runs contract tests, type checks, repository validation, a production build, parses GitHub YAML, and checks Mermaid/SVG assets.
+GitHub Actions runs the quality workflow on pushes, pull requests, and a weekly schedule. It installs the lockfile, reports npm advisories, runs contract tests, type checks, verifies the generated project tree, validates repository links, builds the application, parses GitHub YAML/CFF metadata, and checks Mermaid/SVG assets.
 
 Separate workflows run CodeQL analysis for JavaScript/TypeScript and dependency review for pull requests. These checks do not replace manual browser testing, accessibility evaluation, or human dependency review.
 
