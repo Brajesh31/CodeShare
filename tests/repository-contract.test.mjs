@@ -76,3 +76,27 @@ test("security documentation states the actual prototype boundary", () => {
   assert.match(security, /collaboration backend/i);
   assert.match(security, /Do not use it for confidential source code/i);
 });
+
+test("documentation indexes the complete project reference set", () => {
+  assert.ok(existsSync(resolve(root, "docs/project-structure.md")));
+  assert.match(read("docs/README.md"), /Functional requirements/);
+  assert.match(read("docs/README.md"), /Risk register/);
+  assert.match(read("docs/README.md"), /Accessibility audit/);
+  assert.match(read("docs/project-structure.md"), /repository-contract\.test\.mjs/);
+});
+
+test("security workflows use the project’s current language and review scope", () => {
+  const codeql = read(".github/workflows/codeql.yml");
+  const dependencyReview = read(".github/workflows/dependency-review.yml");
+  assert.match(codeql, /languages:\s*javascript-typescript/);
+  assert.match(codeql, /github\/codeql-action\/analyze@v4/);
+  assert.match(dependencyReview, /actions\/dependency-review-action@v5/);
+  assert.match(dependencyReview, /fail-on-severity:\s*high/);
+});
+
+test("README links to the real visual assets and repository docs", () => {
+  const readme = read("README.md");
+  assert.match(readme, /docs\/assets\/project-banner\.svg/);
+  assert.match(readme, /docs\/assets\/logo\.svg/);
+  assert.match(readme, /docs\/project-structure\.md/);
+});
