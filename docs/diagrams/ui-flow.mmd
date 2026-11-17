@@ -1,0 +1,14 @@
+flowchart TD
+  A[Visit landing page /] --> B[Read CodeCollab feature pitch]
+  B --> C[Select Launch Editor]
+  C --> D[Open /editor]
+  D --> E[Editor workspace]
+  E --> F[Edit sample text locally]
+  E --> G[Open team chat]
+  G --> H[Append message to local state]
+  E --> I[Open AI tab]
+  I --> J[Show delayed canned reply]
+  E --> K[Toggle theme / chat panel]
+  F --> L[Reload page]
+  H --> L
+  L --> M[Local state resets]
