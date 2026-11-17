@@ -1,50 +1,116 @@
 # 📚 CodeShare Documentation Hub
 
-This handbook describes the repository as it exists today: a Next.js App Router prototype with a landing page and a local editor/chat workspace. It distinguishes implemented UI from mock collaboration services and future architecture.
+This handbook describes the checked-in CodeShare repository. It separates current local UI behavior from proposed future services. The project currently has a Next.js App Router landing page and a local editor/chat prototype, not a live collaboration platform.
 
-## 🧭 Start here
+## 🧭 Product and requirements
 
-| Topic | Document |
-|---|---|
-| What CodeShare currently does | [Product overview](product-overview.md) |
-| Local setup | [Installation](installation.md) |
-| Source architecture | [Architecture](architecture.md) |
-| Routes and current interfaces | [API and route reference](api.md) |
-| Component inventory | [Component reference](components.md) |
-| Development workflow | [Development](development.md) |
-| Build and deployment | [Deployment](deployment.md) |
-| Data and persistence | [Database and data model](database.md) |
-| Security boundaries | [Security](security.md) |
-| Privacy and data handling | [Privacy](privacy.md) |
-| Testing and quality checks | [Testing](testing.md) |
-| Accessibility | [Accessibility](accessibility.md) |
-| Known limitations | [Known issues](known-issues.md) |
-| Common fixes | [Troubleshooting](troubleshooting.md) |
-
-## 🗂️ Reference and operations
-
-- [Environment configuration](configuration.md)
-- [Dependencies and supply chain](dependencies.md)
-- [Performance notes](performance.md)
-- [Release process](release-process.md)
-- [Decision log](decision-log.md)
+- [Product overview](product-overview.md)
+- [Project background](project-background.md)
+- [Problem statement](problem-statement.md)
+- [Solution overview](solution-overview.md)
+- [Project objectives](project-objectives.md)
+- [Feature inventory](features.md)
+- [Functional requirements](functional-requirements.md)
+- [Non-functional requirements](non-functional-requirements.md)
+- [User personas](user-personas.md)
+- [User journeys](user-journeys.md)
+- [Use cases](use-cases.md)
+- [Scope and limitations](scope-and-limitations.md)
 - [Glossary](glossary.md)
 - [FAQ](faq.md)
-- [Architecture diagrams](diagrams/README.md)
+
+## 🏗️ Architecture and engineering
+
+- [Architecture](architecture.md)
+- [Technical overview](technical-overview.md)
+- [Component architecture](component-architecture.md)
+- [Component reference](components.md)
+- [Application lifecycle](application-lifecycle.md)
+- [Project structure, complete tracked tree](project-structure.md)
+- [Technology stack](technology-stack.md)
+- [Code standards](code-standards.md)
+- [Error handling](error-handling.md)
+- [Configuration](configuration.md)
+- [Environment variables](environment-variables.md)
+- [Dependencies](dependencies.md)
+- [Dependency security](dependency-security.md)
+- [Performance](performance.md)
+- [Data flow](data-flow.md)
+- [Database schema status](database-schema.md)
+- [API and route reference](api-reference.md)
+- [API scope](api.md)
+- [Database and persistence scope](database.md)
+- [Decision log](decision-log.md)
+
+## 🚀 Setup and development
+
+- [Getting started](getting-started.md)
+- [Installation](installation.md)
+- [Local development](development.md)
+- [Developer guide](developer-guide.md)
+- [Maintainer guide](maintainer-guide.md)
+- [Building](building.md)
+- [Commands reference](commands-reference.md)
+- [Debugging](debugging.md)
+- [Troubleshooting](troubleshooting.md)
+
+## 🎨 Frontend, UX and accessibility
+
+- [UI/UX guidelines](ui-ux-guidelines.md)
+- [Design system notes](design-system.md)
+- [Responsive design](responsive-design.md)
+- [Navigation structure](navigation-structure.md)
+- [Accessibility guide](accessibility.md)
+- [Accessibility audit plan and findings](accessibility-audit.md)
+
+The accessibility target is WCAG 2.2 AA where applicable. The repository does not claim conformance because a formal audit has not been completed.
+
+## 🔐 Security and privacy
+
+- [Security model](security.md)
+- [Threat model](threat-model.md)
+- [Secret management](secret-management.md)
+- [Data retention and deletion](data-retention.md)
+- [Privacy](privacy.md)
+- [Dependency security](dependency-security.md)
+
+## 🧪 Quality and testing
+
+- [Testing](testing.md)
+- [Test strategy](test-strategy.md)
+- [Quality assurance](qa.md)
+- [Accessibility audit](accessibility-audit.md)
+- [Known issues](known-issues.md)
+
+## 📦 Deployment and maintenance
+
+- [Deployment](deployment.md)
+- [CI/CD and GitHub Actions](ci-cd.md)
+- [Release process](release-process.md)
+- [Maintenance guide](maintenance.md)
+- [Technical debt register](technical-debt.md)
+- [Risk register](risk-register.md)
+
+## 🗺️ Visual documentation and operations
+
+- [Architecture and workflow diagrams](diagrams/README.md)
 - [Operational runbooks](runbooks/README.md)
-- [Reusable contribution templates](templates/README.md)
-- [Scripts and checks](../scripts/README.md)
+- [Reusable engineering templates](templates/README.md)
+- [Repository scripts](../scripts/README.md)
 
-## 🧪 Automated checks
+## 🧪 Commands
 
-Run `npm test`, `npm run typecheck`, `npm run validate`, and `npm run build`. The tests protect repository contracts and prototype disclosures; they do not replace browser-level tests. See [testing.md](testing.md).
+```bash
+npm ci
+npm test
+npm run typecheck
+npm run validate
+npm run audit:security
+npm run build
+```
 
-## ⚠️ Scope disclaimer
+## ⚠️ Scope and safety
 
-The current editor, chat, AI, connection status, and presence are prototype UI. The editor is a `contentEditable` element. Chat and editor state are local to the browser. The AI response is canned. No collaboration server, auth layer, API, database, or model provider is included.
+The editor, chat, sample presence, and AI Preview are local prototype UI. There is no authentication, collaboration server, supported app API, database, model provider, or persistence layer. Do not use this prototype for confidential code or private team conversations.
 
-Do not use this prototype to share confidential source code under the assumption that rooms, members, or messages are protected.
-
-## 🧾 Licensing
-
-The root MIT grant applies only to original CodeShare source and documentation within its stated scope. Next.js starter files, external avatars, dependencies, icons, and other third-party material remain under their respective terms. See [LICENSE](../LICENSE).
+A successful build or repository check does not establish production security, accessibility conformance, or real-time functionality.
