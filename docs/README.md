@@ -26,7 +26,7 @@ This handbook describes the checked-in CodeShare repository. It separates curren
 - [Component architecture](component-architecture.md)
 - [Component reference](components.md)
 - [Application lifecycle](application-lifecycle.md)
-- [Project structure, complete tracked tree](project-structure.md)
+- [Complete tracked project structure](project-structure.md)
 - [Technology stack](technology-stack.md)
 - [Code standards](code-standards.md)
 - [Error handling](error-handling.md)
@@ -34,18 +34,6 @@ This handbook describes the checked-in CodeShare repository. It separates curren
 - [Environment variables](environment-variables.md)
 - [Dependencies](dependencies.md)
 - [Dependency security](dependency-security.md)
-- [Security architecture](security-architecture.md)
-- [Authentication status](authentication.md)
-- [Authorization and access control](authorization.md)
-- [Encryption](encryption.md)
-- [Data protection](data-protection.md)
-- [Vulnerability management](vulnerability-management.md)
-- [Security testing](security-testing.md)
-- [Audit logging](audit-logging.md)
-- [Incident response](incident-response.md)
-- [Backup and restore](backup-and-restore.md)
-- [Disaster recovery](disaster-recovery.md)
-- [Security risk register](security-risk-register.md)
 - [Performance](performance.md)
 - [Data flow](data-flow.md)
 - [Database schema status](database-schema.md)
@@ -66,51 +54,65 @@ This handbook describes the checked-in CodeShare repository. It separates curren
 - [Debugging](debugging.md)
 - [Troubleshooting](troubleshooting.md)
 
-## 🎨 Frontend, UX and accessibility
+## 🎨 Frontend, design and accessibility
 
 - [UI/UX guidelines](ui-ux-guidelines.md)
 - [Design system notes](design-system.md)
 - [Design tokens](design-tokens.md)
+- [Color system](color-system.md)
+- [Typography](typography.md)
+- [Animation guidelines](animation-guidelines.md)
 - [Responsive design](responsive-design.md)
 - [Navigation structure](navigation-structure.md)
 - [Accessibility guide](accessibility.md)
-- [Accessibility audit plan and findings](accessibility-audit.md)
+- [WCAG compliance status](wcag-compliance.md)
+- [Keyboard navigation](keyboard-navigation.md)
+- [Screen-reader support](screen-reader-support.md)
+- [Color contrast](color-contrast.md)
+- [Accessibility testing](accessibility-testing.md)
+- [Accessibility audit plan](accessibility-audit.md)
 
-The accessibility target is WCAG 2.2 AA where applicable. The repository does not claim conformance because a formal audit has not been completed.
+The target is WCAG 2.2 AA where applicable. The repository does not claim conformance because a formal audit has not been completed.
 
 ## 🔐 Security and privacy
 
 - [Security model](security.md)
 - [Threat model](threat-model.md)
+- [Authentication status](authentication.md)
+- [Authorization status](authorization.md)
+- [Access control](access-control.md)
 - [Secret management](secret-management.md)
+- [Encryption](encryption.md)
+- [Data protection](data-protection.md)
+- [Data privacy](data-privacy.md)
 - [Data retention and deletion](data-retention.md)
-- [Privacy](privacy.md)
-- [Data deletion](data-deletion.md)
-- [Third-party services](third-party-services.md)
-- [Dependency security](dependency-security.md)
+- [Vulnerability management](vulnerability-management.md)
+- [Security testing](security-testing.md)
+- [Incident response](incident-response.md)
+- [Backup and restore](backup-and-restore.md)
+- [Audit logging](audit-logging.md)
+- [Risk register](risk-register.md)
+- [Compliance and legal considerations](compliance.md)
+
+## 🔌 Integrations and operations
+
+- [Integrations](integrations.md)
+- [Third-party services and assets](third-party-services.md)
+- [Hosting](hosting.md)
+- [Infrastructure](infrastructure.md)
+- [Deployment](deployment.md)
+- [CI/CD and GitHub Actions](ci-cd.md)
+- [Release process](release-process.md)
+- [Maintenance guide](maintenance.md)
+- [Technical debt register](technical-debt.md)
 
 ## 🧪 Quality and testing
 
 - [Testing](testing.md)
 - [Test strategy](test-strategy.md)
 - [Quality assurance](qa.md)
-- [Test coverage and gaps](test-coverage.md)
-- [Accessibility audit](accessibility-audit.md)
+- [Accessibility testing](accessibility-testing.md)
 - [Known issues](known-issues.md)
-
-## 📦 Deployment and maintenance
-
-- [Deployment](deployment.md)
-- [Hosting](hosting.md)
-- [Production setup](production-setup.md)
-- [Operations](operations.md)
-- [Monitoring and observability](monitoring.md)
-- [Health checks](health-checks.md)
-- [CI/CD and GitHub Actions](ci-cd.md)
-- [Release process](release-process.md)
-- [Maintenance guide](maintenance.md)
-- [Technical debt register](technical-debt.md)
-- [Risk register](risk-register.md)
 
 ## 🗺️ Visual documentation and operations
 
@@ -125,13 +127,16 @@ The accessibility target is WCAG 2.2 AA where applicable. The repository does no
 npm ci
 npm test
 npm run typecheck
+npm run docs:tree:check
 npm run validate
 npm run audit:security
 npm run build
 ```
 
+After adding, removing, or renaming tracked files, regenerate the tree with `npm run docs:tree`.
+
 ## ⚠️ Scope and safety
 
-The editor, chat, sample presence, and AI Preview are local prototype UI. There is no authentication, collaboration server, supported app API, database, model provider, or persistence layer. Do not use this prototype for confidential code or private team conversations.
+The editor, chat, sample presence, and AI Preview are local prototype UI. There is no authentication, collaboration server, supported application API, database, model provider, or persistence layer. Do not use this prototype for confidential code or private team conversations.
 
 A successful build or repository check does not establish production security, accessibility conformance, or real-time functionality.
