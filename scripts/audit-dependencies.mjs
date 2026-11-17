@@ -29,9 +29,19 @@ if (!counts) {
   process.exit(1);
 }
 
-const total = Number(counts.total || 0);
 const severities = ["critical", "high", "moderate", "low", "info"];
+const total = Number(counts.total || 0);
 const rows = severities.map((severity) => `| ${severity} | ${Number(counts[severity] || 0)} |`);
+const packages = Object.entries(report.vulnerabilities || {});
+const packageRows = packages.map(([name, info]) => {
+  const fix = info.fixAvailable === false
+    ? "No automatic fix reported"
+    : typeof info.fixAvailable === "object"
+      ? `${info.fixAvailable.name || name}@${info.fixAvailable.version || "version unspecified"}${info.fixAvailable.isSemVerMajor ? " (major update)" : ""}`
+      : "Review npm advisory details";
+  return `| ${name} | ${info.severity || "unknown"} | ${info.isDirect ? "Direct" : "Transitive"} | ${fix.replaceAll("|", "\\|")} |`;
+});
+
 const summary = [
   "## Dependency security audit",
   "",
@@ -41,17 +51,21 @@ const summary = [
   "|---|---:|",
   ...rows,
   "",
-  "This report is informational. Review advisory details and update dependencies deliberately; do not apply force upgrades without checking compatibility.",
+  "### Affected package summary",
+  "",
+  "| Package | Severity | Dependency | npm fix hint |",
+  "|---|---|---|---|",
+  ...(packageRows.length ? packageRows : ["| None reported | - | - | - |"]),
+  "",
+  "This report is informational. Review advisory details and compatibility before updating dependencies. Do not apply force upgrades without a migration plan.",
   "",
 ].join("\n");
 
 console.log(summary);
-if (process.env.GITHUB_STEP_SUMMARY) {
-  appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
-}
+if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + "\n");
 
 if (total > 0) {
-  console.warn(`::warning::npm audit reported ${total} dependency advisories. Review the security summary and update plan.`);
+  console.warn(`::warning::npm audit reported ${total} dependency advisories. See the package summary and remediation guidance.`);
 } else {
   console.log("No dependency advisories were reported.");
 }
