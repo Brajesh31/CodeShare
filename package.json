@@ -1,12 +1,14 @@
 {
-  "name": "fontend",
+  "name": "codeshare",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "validate": "node scripts/validate-repository.mjs"
   },
   "dependencies": {
     "@mantine/core": "^7.17.5",
@@ -24,5 +26,8 @@
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }
