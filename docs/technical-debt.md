@@ -6,7 +6,7 @@ This register is based on source inspection. It is not a complete static-analysi
 
 | ID | Priority | Debt | Impact | Suggested action |
 |---|---|---|---|---|
-| TD-01 | Critical | Next.js 15.3.1 has unresolved npm advisory findings | Security exposure | Review advisories, upgrade to patched compatible version and regenerate lockfile |
+| TD-01 | Critical | Next.js 15.3.1 has unresolved npm advisory findings; npm reports 15.5.29 as the fix candidate | Security exposure | Upgrade through npm, regenerate lockfile, and rerun full checks |
 | TD-02 | High | No backend/auth/authorization for collaboration | Product cannot safely support private rooms | Design trust boundary before adding connected features |
 | TD-03 | High | Editor uses raw contenteditable | Weak editing model and accessibility risks | Evaluate maintained editor engines and test keyboard behavior |
 | TD-04 | Medium | Chat is local React state | No cross-user messaging or history | Define message service and persistence requirements if scope approved |
