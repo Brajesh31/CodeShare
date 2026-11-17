@@ -1,20 +1,30 @@
-# API Reference
+# API and Route Reference
 
-## Current routes
+## Next.js routes
 
-| Path | Behavior |
-| --- | --- |
-| `/` | Landing page component from `app/page.tsx` |
-| `/editor` | Local editor/chat mock from `app/editor/page.tsx` |
+| Path | Source | Current behavior |
+|---|---|---|
+| `/` | `app/page.tsx` | Landing page |
+| `/editor` | `app/editor/page.tsx` | Local editor/chat UI |
 
-There are no `app/api` handlers, application HTTP endpoints, or running Socket.IO server in this repository.
+There are no `app/api` route handlers or server actions in the current tree.
 
-## Socket.IO status
+## Current browser interactions
 
-`socket.io-client` is a dependency, but the routed editor components do not import it or establish a socket connection. `pagebackup.tsx` is an unreferenced experiment that connects to `ws://localhost:3000/` and emits `join-room`, `code-changed`, and `get-room-users` events. There is no server here to implement those events, so they are not a supported API.
+The editor, chat, language selection, theme, and panel visibility are local React state. They are not backed by a REST API or collaboration transport.
 
-## Chat behavior
+## Legacy Socket.IO experiment
 
-The Team tab appends messages to local component state. The AI tab appends the same local user message and a generic fixed assistant reply after one second. No HTTP request, model API, or provider is involved.
+`pagebackup.tsx` connects to `ws://localhost:3000/` and references these sample event names:
+- `join-room`
+- `code-changed`
+- `code-changed-on-join`
+- `get-room-users`
+- `room-users`
+- `user-connected`
 
-If an API is added, document route/event schemas, authentication, authorization, errors, rate limits, data retention, and reconnect behavior before calling it supported.
+This file is not the active `/` route and no server implementation exists here. These event names are not a supported API contract.
+
+## Requirements for a future supported API
+
+Document authentication, room authorization, request/event schemas, validation, message limits, rate limiting, error semantics, ordering, retry/reconnect behavior, version compatibility, logging, and retention. Include tests for unauthorized and cross-room access.
