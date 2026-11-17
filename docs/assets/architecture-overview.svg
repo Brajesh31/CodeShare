@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">CodeShare current architecture</title>
+  <desc id="desc">Current CodeShare Next.js app with landing and editor routes, local React state for editor and chat, static presence, and unimplemented backend services.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#172554"/></linearGradient>
+    <linearGradient id="client" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#dbeafe"/><stop offset="1" stop-color="#e0e7ff"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 9 3 0 6z" fill="#93c5fd"/></marker>
+    <style>
+      .panel{fill:#1e293b;stroke:#475569;stroke-width:2}
+      .box{fill:url(#client);stroke:#60a5fa;stroke-width:2}
+      .muted{fill:#334155;stroke:#64748b;stroke-width:2;stroke-dasharray:9 7}
+      .title{font:700 30px Arial,sans-serif;fill:#f8fafc}
+      .heading{font:700 20px Arial,sans-serif;fill:#0f172a;text-anchor:middle}
+      .body{font:16px Arial,sans-serif;fill:#334155;text-anchor:middle}
+      .white{font:700 18px Arial,sans-serif;fill:#e2e8f0;text-anchor:middle}
+      .small{font:14px Arial,sans-serif;fill:#cbd5e1;text-anchor:middle}
+      .edge{fill:none;stroke:#93c5fd;stroke-width:3;marker-end:url(#arrow)}
+      .dash{fill:none;stroke:#fbbf24;stroke-width:3;stroke-dasharray:8 7}
+    </style>
+  </defs>
+  <rect width="1280" height="720" rx="26" fill="url(#background)"/>
+  <text class="title" x="56" y="66">CodeShare · Current Repository Architecture</text>
+  <text x="56" y="98" fill="#bfdbfe" font-family="Arial,sans-serif" font-size="16">Observed implementation, not proposed production architecture</text>
+
+  <rect class="panel" x="48" y="145" width="1184" height="300" rx="20"/>
+  <text class="white" x="640" y="180">Next.js App Router</text>
+  <rect class="box" x="82" y="216" width="230" height="86" rx="14"/>
+  <text class="heading" x="197" y="249">Landing Route</text>
+  <text class="body" x="197" y="276">app/page.tsx · /</text>
+  <rect class="box" x="82" y="325" width="230" height="86" rx="14"/>
+  <text class="heading" x="197" y="358">Editor Route</text>
+  <text class="body" x="197" y="385">app/editor/page.tsx</text>
+  <path class="edge" d="M312 368H380"/>
+  <rect class="box" x="384" y="225" width="250" height="170" rx="16"/>
+  <text class="heading" x="509" y="258">EditorApp</text>
+  <text class="body" x="509" y="290">Workspace shell</text>
+  <text class="body" x="509" y="319">Theme + panel state</text>
+  <text class="body" x="509" y="348">Static status indicator</text>
+  <path class="edge" d="M634 308H690"/>
+  <rect class="box" x="694" y="206" width="240" height="88" rx="14"/>
+  <text class="heading" x="814" y="239">Editor</text>
+  <text class="body" x="814" y="266">contentEditable mock</text>
+  <rect class="box" x="694" y="315" width="240" height="88" rx="14"/>
+  <text class="heading" x="814" y="348">ChatPanel</text>
+  <text class="body" x="814" y="375">Local chat + canned AI</text>
+  <path class="edge" d="M934 250H990"/>
+  <path class="edge" d="M934 359H990"/>
+  <rect class="box" x="994" y="206" width="200" height="88" rx="14"/>
+  <text class="heading" x="1094" y="239">React State</text>
+  <text class="body" x="1094" y="266">Current tab only</text>
+  <rect class="box" x="994" y="315" width="200" height="88" rx="14"/>
+  <text class="heading" x="1094" y="348">Presence</text>
+  <text class="body" x="1094" y="375">Static sample users</text>
+
+  <rect class="muted" x="48" y="485" width="1184" height="165" rx="20"/>
+  <text class="white" x="640" y="523">Not implemented in this repository</text>
+  <rect class="muted" x="90" y="550" width="210" height="65" rx="12"/>
+  <text class="white" x="195" y="589">Authentication</text>
+  <rect class="muted" x="350" y="550" width="210" height="65" rx="12"/>
+  <text class="white" x="455" y="589">Realtime server</text>
+  <rect class="muted" x="610" y="550" width="210" height="65" rx="12"/>
+  <text class="white" x="715" y="589">Database</text>
+  <rect class="muted" x="870" y="550" width="150" height="65" rx="12"/>
+  <text class="white" x="945" y="589">AI API</text>
+  <rect class="muted" x="1060" y="550" width="140" height="65" rx="12"/>
+  <text class="white" x="1130" y="589">Room ACL</text>
+  <text x="640" y="686" fill="#fcd34d" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">No current route connects to these proposed services. Do not treat prototype indicators as a live connection.</text>
+</svg>
