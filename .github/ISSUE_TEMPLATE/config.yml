@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: '📖 Documentation'
+    url: https://github.com/Brajesh31/CodeShare/tree/main/docs
+    about: Read the implementation notes and setup guides.
+  - name: '🔐 Private vulnerability report'
+    url: https://github.com/Brajesh31/CodeShare/security/advisories/new
+    about: Report sensitive security issues privately when enabled.
