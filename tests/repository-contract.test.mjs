@@ -119,6 +119,13 @@ test("project structure generator stays synchronized with Git-tracked paths", as
   assert.equal(actual, buildProjectTree(tracked));
 });
 
+test("the Next.js nested PostCSS dependency uses the patched version", () => {
+  const manifest = parse("package.json");
+  const lock = parse("package-lock.json");
+  assert.equal(manifest.overrides?.next?.postcss, "8.5.33");
+  assert.equal(lock.packages["node_modules/next/node_modules/postcss"]?.version, "8.5.33");
+});
+
 test("dependency security status matches the checked-in manifest and lockfile", () => {
   const security = read("docs/dependency-security.md");
   const manifest = parse("package.json");
