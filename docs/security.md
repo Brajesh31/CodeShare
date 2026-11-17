@@ -2,9 +2,9 @@
 
 ## Current trust boundary
 
-The routed application is primarily client-side UI. It has no authentication, session management, API routes, room membership checks, authorization middleware, database, or collaboration backend.
+The routed application is primarily local client-side UI. It has no authentication, session management, API routes, room membership checks, authorization middleware, database, or collaboration backend.
 
-**Do not use it for confidential source code, private team discussion, or sensitive business information.** UI presence and “Connected” text do not represent authenticated users or a protected connection.
+**Do not use it for confidential source code, private team discussion, or sensitive business information.** Presence is represented by sample profiles, and the editor does not synchronize its content with another browser or server.
 
 ## Client-side exposure
 
@@ -19,7 +19,7 @@ The presence component requests avatars from `pravatar.cc`. The root layout uses
 
 ## Legacy Socket.IO experiment
 
-`pagebackup.tsx` contains an unreferenced experiment connecting to `ws://localhost:3000/`. No server is implemented in this repository. Do not expose this experiment as a supported endpoint or blindly deploy it.
+`pagebackup.tsx` contains an unreferenced experiment connecting to `ws://localhost:3000/`. No server is implemented in this repository. The routed editor does not import or connect to this experiment. Do not expose it as a supported endpoint or blindly deploy it.
 
 ## Requirements before real collaboration
 
@@ -32,6 +32,10 @@ A production collaboration service needs at minimum:
 - Private secret management and least-privilege service credentials.
 - Clear persistence, retention, backup, deletion, and audit policies.
 - Tests for unauthorized room access, cross-room leaks, replay, and disconnect behavior.
+
+## Dependency security
+
+The pinned dependency tree has previously produced multiple npm audit advisories. CI now reports current severity counts, but the audit step is informational and does not substitute for remediation. Review [dependency guidance](dependencies.md) and update vulnerable packages before a production deployment.
 
 ## Reporting
 
