@@ -1,44 +1,43 @@
-# Installation
+# 🚀 Installation and Local Setup
 
 ## Requirements
 
-- Node.js and npm compatible with the installed Next.js release
-- Git
-- A modern browser
+- Node.js compatible with Next.js 15.3.1 and the committed lockfile.
+- npm, Git, and a modern browser.
 
-No API key, backend, database, or environment variable is required for the current UI.
+No API credentials, database, or separate backend is needed for the current prototype.
 
-## Install and run
+## Clone and install
 
-From the repository root:
-
-```sh
+```bash
+git clone https://github.com/Brajesh31/CodeShare.git
+cd CodeShare
 npm ci
+```
+
+## Development server
+
+```bash
 npm run dev
 ```
 
-Open `http://localhost:3000`. Use **Launch Editor** on the landing page or open `http://localhost:3000/editor` directly.
+Open `http://localhost:3000`. The landing page is `/`; the editor workspace is `/editor`.
 
-## Build and start
+## Production build
 
-```sh
+```bash
 npm run build
 npm start
 ```
 
-`npm start` runs the built Next.js app. See [deployment.md](deployment.md) before publishing.
+## Type checking
 
-## Configuration
+```bash
+npx tsc --noEmit
+```
 
-The current routed pages read no environment variables. `.env.example` is comment-only. A future browser-exposed variable using `NEXT_PUBLIC_` must not contain a private key or credential.
+There is no configured automated test script yet. See [testing.md](testing.md).
 
-## Available scripts
+## Environment configuration
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Run Next.js with Turbopack |
-| `npm run build` | Build the application |
-| `npm start` | Start the production server after a build |
-| `npm run lint` | Run the configured `next lint` script |
-
-There is no automated test script in the current package.
+The routed application currently reads no environment variables. `.env.example` is informational. Do not put secrets in `NEXT_PUBLIC_*` variables because those values are exposed to browser code.
