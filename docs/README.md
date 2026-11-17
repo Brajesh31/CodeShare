@@ -102,7 +102,6 @@ The target is WCAG 2.2 AA where applicable. The repository does not claim confor
 - [Hosting](hosting.md)
 - [Infrastructure](infrastructure.md)
 - [Deployment](deployment.md)
-- [Hosting](hosting.md)
 - [Production setup](production-setup.md)
 - [Operations](operations.md)
 - [Monitoring and observability](monitoring.md)
