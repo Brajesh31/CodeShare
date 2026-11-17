@@ -1,9 +1,19 @@
-# Database and Persistence
+# 🗄️ Database and Persistence
 
-## Current state
+## Current implementation
 
-There is no database, storage adapter, or server-side persistence. Editor content, language selection, chat messages, active tab, theme, and presence UI are held in React component state. Reloading the page resets them.
+There is no database, ORM, migration system, server-side storage adapter, or persistent document store in this repository.
 
-## Future collaboration storage
+Editor text, selected language, theme state, chat messages, and panel visibility are stored in React component state. A page reload resets them.
 
-Before introducing persistence, define ownership and access rules for rooms, files, messages, and user identities. Document data schemas, migrations, backups, retention/deletion, authorization, and recovery. Do not store private team code in a public bucket or trust client-submitted room/user identifiers without server validation.
+## Future storage requirements
+
+Before adding persistence, define:
+- User identity and workspace/room ownership.
+- Document and message schemas, validation, and versioning.
+- Server-side authorization for every read/write.
+- Backup, restore, retention, export, and deletion behavior.
+- Audit events and abuse monitoring.
+- Encryption and secret management requirements.
+
+Never trust client-supplied room IDs or member identifiers without server-side authorization.
