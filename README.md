@@ -36,7 +36,7 @@
 - Editable sample code using a browser `contentEditable` element.
 - Local language selector, theme toggle, and chat panel state.
 - Team chat UI with messages held in React state.
-- AI assistant tab with a fixed placeholder answer.
+- AI chat preview with a fixed demo response.
 - Static sample user avatars and presence display.
 - Mantine components, Tailwind utilities, and Lucide icons.
 
@@ -100,7 +100,7 @@ The Node-native tests cover repository contracts and prototype disclosures. They
 
 | Route | File | Description |
 |---|---|---|
-| `/` | `app/page.tsx` | CodeCollab landing page |
+| `/` | `app/page.tsx` | CodeShare landing page |
 | `/editor` | `app/editor/page.tsx` | Local editor, team/AI chat UI, theme and static presence |
 
 No `app/api` routes or supported WebSocket endpoints are present.
@@ -146,7 +146,7 @@ No `app/api` routes or supported WebSocket endpoints are present.
 
 ## 🧪 Validation
 
-The repository quality workflow runs `npm ci`, `npx tsc --noEmit`, repository validation, `npm run build`, YAML parsing, and Mermaid source checks.
+The quality workflow runs on pushes, pull requests, and weekly. It installs the lockfile, reports npm security advisories, runs contract tests, type checking, repository validation, a production build, YAML parsing, and Mermaid source checks.
 
 A successful type check/build verifies compilation, not real-time collaboration, AI, authentication, data protection, or full accessibility. Manual route checks are still required.
 
