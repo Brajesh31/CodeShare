@@ -1,0 +1,11 @@
+flowchart TD
+  Change[Pull request or push] --> Install[npm ci]
+  Install --> TypeCheck[npx tsc --noEmit]
+  TypeCheck --> Build[npm run build]
+  Build --> Review[Review workflow result]
+  Review -->|Pass| Manual[Manual route smoke test]
+  Review -->|Fail| Fix[Diagnose and fix]
+  Fix --> Change
+  Manual -->|Verified| Release[Deploy Next.js UI build]
+  Manual -->|Not verified| FollowUp[Record gap, do not claim full QA]
+  Release --> Routes[Verify / and /editor]
