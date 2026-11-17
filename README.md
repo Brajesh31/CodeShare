@@ -1,18 +1,18 @@
 # 💻 CodeShare
 
-**CodeShare (CodeCollab prototype)** is a Next.js application exploring a collaborative coding workspace. The repository currently provides a landing page and an interactive local editor/chat UI.
+**CodeShare** is a Next.js prototype exploring the interface of a collaborative coding workspace. The repository currently provides a landing page and an interactive local editor/chat UI.
 
 <p align="center">
-  <img src="docs/assets/architecture-overview.svg" alt="CodeShare current architecture overview" width="950">
+  <img src="docs/assets/project-banner.svg" alt="CodeShare local-first collaborative workspace prototype banner" width="100%">
 </p>
 
 <p align="center">
-  <a href="https://github.com/Brajesh31/CodeShare/actions/workflows/quality-checks.yml"><img src="https://github.com/Brajesh31/CodeShare/actions/workflows/quality-checks.yml/badge.svg" alt="Quality checks"></a>
+  <a href="https://github.com/Brajesh31/CodeShare/actions/workflows/codeql.yml"><img src="https://github.com/Brajesh31/CodeShare/actions/workflows/codeql.yml/badge.svg" alt="CodeQL analysis"></a>\n  <a href="https://github.com/Brajesh31/CodeShare/actions/workflows/quality-checks.yml"><img src="https://github.com/Brajesh31/CodeShare/actions/workflows/quality-checks.yml/badge.svg" alt="Quality checks"></a>
   <img src="https://img.shields.io/badge/Next.js-15.3.1-black?logo=nextdotjs" alt="Next.js 15">
   <img src="https://img.shields.io/badge/React-19-149eca?logo=react" alt="React 19">
   <img src="https://img.shields.io/badge/TypeScript-5-blue?logo=typescript" alt="TypeScript">
   <img src="https://img.shields.io/badge/Mantine-7-339af0" alt="Mantine">
-  <img src="https://img.shields.io/badge/Status-UI%20prototype-orange" alt="UI prototype">
+  <img src="https://img.shields.io/badge/Status-UI%20prototype-orange" alt="UI prototype">\n  <img src="https://img.shields.io/github/stars/Brajesh31/CodeShare?style=flat" alt="GitHub stars">\n  <img src="https://img.shields.io/github/issues/Brajesh31/CodeShare?style=flat" alt="Open issues">\n  <img src="https://img.shields.io/github/last-commit/Brajesh31/CodeShare?style=flat" alt="Last commit">
 </p>
 
 > **Important:** This is a UI prototype, not a live collaborative coding service. The editor and chat store state in the current browser tab. Presence is hard-coded, the AI tab returns a canned reply, and no authentication, collaboration server, database, model provider, or persistence layer exists in this repository.
@@ -170,7 +170,7 @@ See [ROADMAP.md](ROADMAP.md). This is a proposed direction, not a delivery promi
 
 ## 📚 Documentation
 
-Start at [docs/README.md](docs/README.md). The handbook covers product behavior, architecture, components, routes, configuration, dependencies, security, privacy, data, deployment, testing, accessibility, runbooks, diagrams, and reusable templates.
+Start at [docs/README.md](docs/README.md). The [project structure guide](docs/project-structure.md) contains the complete tracked-file tree and file responsibilities. The handbook covers product requirements, architecture, development, UX, privacy, security, QA, deployment, runbooks, diagrams, and reusable engineering templates.
 
 ## 🤝 Contributing
 
