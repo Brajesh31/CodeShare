@@ -22,7 +22,9 @@ nvm use
 npm ci
 npm test
 npm run typecheck
+npm run docs:tree:check
 npm run validate
+npm run audit:security
 npm run build
 ```
 
