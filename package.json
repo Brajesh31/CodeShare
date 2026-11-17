@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "audit:security": "node scripts/audit-dependencies.mjs",
     "build": "next build",
+    "dev": "next dev --turbopack",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
     "test": "node --test",
+    "typecheck": "tsc --noEmit",
     "validate": "node scripts/validate-repository.mjs"
   },
   "dependencies": {
