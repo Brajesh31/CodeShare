@@ -9,7 +9,7 @@ const Editor: React.FC<EditorProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState('javascript');
   const [code, setCode] = useState(`// Welcome to CodeCollab
-// Start typing to collaborate in real-time
+// This sample stays in the current browser tab; it is not synchronized.
 function greet(name) {
   return \`Hello, \${name}! Welcome to our collaborative editor.\`;
 }
@@ -67,7 +67,7 @@ console.log(greet("Developer"));
         <div>Line 1, Column 1</div>
         <div>Spaces: 2</div>
         <div>UTF-8</div>
-        <div>Collaborative Editing: On</div>
+        <div>Sync: Not connected</div>
       </div>
     </div>;
 };
