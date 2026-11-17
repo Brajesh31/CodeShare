@@ -1,13 +1,26 @@
 # Support
 
-This repository is an early UI prototype and does not provide a hosted collaboration or AI service. No response-time guarantee is offered.
+## Project status
 
-## Questions and bug reports
+CodeShare is currently a UI prototype. It does not provide real-time collaboration, an AI model service, authentication, persistent storage, or production support guarantees.
 
-Search existing [GitHub issues](https://github.com/Brajesh31/CodeShare/issues) first. Include the route, browser, steps to reproduce, expected behavior, and observed behavior. For UI issues, a screenshot can help; remove private code and chat content first.
+## Before asking for help
 
-Do not post credentials or confidential source. Report suspected vulnerabilities privately according to [SECURITY.md](SECURITY.md).
+1. Read [README.md](README.md).
+2. Review the [documentation hub](docs/README.md).
+3. Check the [FAQ](docs/faq.md) and [troubleshooting guide](docs/troubleshooting.md).
+4. Search existing GitHub issues.
 
-## Scope
+## Bug reports
 
-The current app has no backend, online sessions, durable chat history, or model-provider integration. See [CONTRIBUTING.md](CONTRIBUTING.md) to propose work.
+Use the bug-report template. Include the route, commit, Node/npm version, browser/OS, steps, expected result, actual result, and sanitized error output.
+
+Do not include private source code, credentials, access tokens, or customer data.
+
+## Security reports
+
+Do not report vulnerabilities in a public issue. Follow [SECURITY.md](SECURITY.md) and use GitHub private vulnerability reporting where available.
+
+## Support limitations
+
+No response-time, uptime, compatibility, or maintenance SLA is provided. The repository is maintained on a best-effort basis.
