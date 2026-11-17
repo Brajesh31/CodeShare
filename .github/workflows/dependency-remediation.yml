@@ -29,6 +29,11 @@ jobs:
           node-version: "22"
           cache: npm
 
+      - name: Configure Git identity for rebase and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Rebase onto the latest main revision
         run: |
           git fetch origin main
