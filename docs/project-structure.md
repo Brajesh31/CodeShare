@@ -5,11 +5,6 @@
 ## Complete tracked tree
 
     CodeShare/
-    ├── .editorconfig
-    ├── .env.example
-    ├── .gitattributes
-    ├── .gitignore
-    ├── .nvmrc
     ├── .github/
     │   ├── DISCUSSION_TEMPLATE/
     │   │   ├── ideas.yml
@@ -22,32 +17,18 @@
     │   │   ├── feature_request.yml
     │   │   ├── performance_issue.yml
     │   │   └── security_report.yml
-    │   ├── PULL_REQUEST_TEMPLATE.md
+    │   ├── workflows/
+    │   │   ├── codeql.yml
+    │   │   ├── dependency-review.yml
+    │   │   ├── quality-checks.yml
+    │   │   └── update-readme.yml
     │   ├── dependabot.yml
-    │   └── workflows/
-    │       ├── codeql.yml
-    │       ├── dependency-review.yml
-    │       ├── quality-checks.yml
-    │       └── update-readme.yml
+    │   └── PULL_REQUEST_TEMPLATE.md
     ├── .idea/
     │   ├── .gitignore
     │   ├── CodeShare.iml
     │   ├── modules.xml
     │   └── vcs.xml
-    ├── ACKNOWLEDGMENTS.md
-    ├── AUTHORS.md
-    ├── CHANGELOG.md
-    ├── CITATION.cff
-    ├── CODEOWNERS
-    ├── CODE_OF_CONDUCT.md
-    ├── CONTRIBUTING.md
-    ├── GOVERNANCE.md
-    ├── LICENSE
-    ├── PRIVACY.md
-    ├── README.md
-    ├── ROADMAP.md
-    ├── SECURITY.md
-    ├── SUPPORT.md
     ├── app/
     │   ├── components/
     │   │   ├── ChatPanel.tsx
@@ -77,6 +58,7 @@
     │   │   ├── external-data-flow.mmd
     │   │   ├── future-collaboration.mmd
     │   │   ├── local-chat-sequence.mmd
+    │   │   ├── README.md
     │   │   ├── security-boundaries.mmd
     │   │   ├── testing-flow.mmd
     │   │   └── ui-flow.mmd
@@ -86,6 +68,7 @@
     │   │   ├── deployment-rollback.md
     │   │   ├── local-startup.md
     │   │   ├── prototype-triage.md
+    │   │   ├── README.md
     │   │   └── secret-exposure.md
     │   ├── templates/
     │   │   ├── accessibility-audit.md
@@ -106,6 +89,7 @@
     │   │   ├── migration-template.md
     │   │   ├── project-status.md
     │   │   ├── qa-test-case.md
+    │   │   ├── README.md
     │   │   ├── release-checklist.md
     │   │   ├── risk-assessment.md
     │   │   ├── rollback-checklist.md
@@ -113,33 +97,41 @@
     │   │   ├── test-plan.md
     │   │   ├── test-report.md
     │   │   └── threat-assessment.md
-    │   ├── README.md
     │   ├── accessibility-audit.md
     │   ├── accessibility.md
+    │   ├── api-reference.md
     │   ├── api.md
     │   ├── application-lifecycle.md
     │   ├── architecture.md
+    │   ├── building.md
     │   ├── ci-cd.md
     │   ├── code-standards.md
     │   ├── commands-reference.md
     │   ├── component-architecture.md
     │   ├── components.md
     │   ├── configuration.md
+    │   ├── data-flow.md
     │   ├── data-retention.md
+    │   ├── database-schema.md
     │   ├── database.md
+    │   ├── debugging.md
     │   ├── decision-log.md
     │   ├── dependencies.md
     │   ├── dependency-security.md
     │   ├── deployment.md
     │   ├── design-system.md
+    │   ├── developer-guide.md
     │   ├── development.md
+    │   ├── environment-variables.md
     │   ├── error-handling.md
     │   ├── faq.md
     │   ├── features.md
     │   ├── functional-requirements.md
+    │   ├── getting-started.md
     │   ├── glossary.md
     │   ├── installation.md
     │   ├── known-issues.md
+    │   ├── maintainer-guide.md
     │   ├── maintenance.md
     │   ├── navigation-structure.md
     │   ├── non-functional-requirements.md
@@ -151,6 +143,7 @@
     │   ├── project-objectives.md
     │   ├── project-structure.md
     │   ├── qa.md
+    │   ├── README.md
     │   ├── release-process.md
     │   ├── responsive-design.md
     │   ├── risk-register.md
@@ -169,11 +162,6 @@
     │   ├── use-cases.md
     │   ├── user-journeys.md
     │   └── user-personas.md
-    ├── next.config.ts
-    ├── package-lock.json
-    ├── package.json
-    ├── pagebackup.tsx
-    ├── postcss.config.mjs
     ├── public/
     │   ├── file.svg
     │   ├── globe.svg
@@ -181,12 +169,36 @@
     │   ├── vercel.svg
     │   └── window.svg
     ├── scripts/
-    │   ├── README.md
     │   ├── audit-dependencies.mjs
+    │   ├── README.md
     │   └── validate-repository.mjs
-    ├── tailwind.config.ts
     ├── tests/
     │   └── repository-contract.test.mjs
+    ├── .editorconfig
+    ├── .env.example
+    ├── .gitattributes
+    ├── .gitignore
+    ├── .nvmrc
+    ├── ACKNOWLEDGMENTS.md
+    ├── AUTHORS.md
+    ├── CHANGELOG.md
+    ├── CITATION.cff
+    ├── CODE_OF_CONDUCT.md
+    ├── CODEOWNERS
+    ├── CONTRIBUTING.md
+    ├── GOVERNANCE.md
+    ├── LICENSE
+    ├── next.config.ts
+    ├── package-lock.json
+    ├── package.json
+    ├── pagebackup.tsx
+    ├── postcss.config.mjs
+    ├── PRIVACY.md
+    ├── README.md
+    ├── ROADMAP.md
+    ├── SECURITY.md
+    ├── SUPPORT.md
+    ├── tailwind.config.ts
     └── tsconfig.json
 
 This is a tracked-file tree. Git metadata, installed dependencies, generated build output, ignored local secrets, and build cache are intentionally excluded.
