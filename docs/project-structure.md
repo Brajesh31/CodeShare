@@ -277,8 +277,10 @@ API and database documentation explains that no such services exist in the curre
 
 ## Scripts and tests
 
-- scripts/validate-repository.mjs checks required paths, npm metadata consistency, required scripts, route markers, and relative Markdown links.
-- scripts/audit-dependencies.mjs reports npm audit advisory counts. It is informational and does not remediate advisories.
+- scripts/validate-repository.mjs checks required paths, npm metadata consistency, required scripts, route markers, tracked-tree freshness, and relative Markdown links.
+- scripts/project-tree-lib.mjs builds a deterministic directory tree from Git-tracked paths.
+- scripts/generate-project-tree.mjs updates docs/project-structure.md or checks it with --check.
+- scripts/audit-dependencies.mjs reports npm audit advisory counts and package names. It is informational and does not remediate advisories.
 - tests/repository-contract.test.mjs protects package consistency and accurate prototype disclosures.
 
 ## Build output and naming
