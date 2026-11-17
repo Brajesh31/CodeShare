@@ -18,6 +18,10 @@ This script reads the Git index with `git ls-files`, builds a deterministic dire
 
 Run `npm run docs:tree` after adding, removing, or renaming tracked files. CI uses `npm run docs:tree:check` so stale documentation fails validation instead of being silently changed during a build.
 
+## generate-project-tree.mjs
+
+This script reads the Git index with `git ls-files`, builds a deterministic directory tree, and replaces only the tracked-tree section in [docs/project-structure.md](../docs/project-structure.md). Run `npm run docs:tree` after adding, removing, or renaming tracked paths. CI runs `npm run docs:tree:check` so stale documentation fails rather than being silently rewritten.
+
 ## validate-repository.mjs
 
 The validator checks core source, governance, documentation, workflow, and visual asset paths. It verifies manifest/lockfile consistency, required npm scripts, Markdown relative links, App Router markers, and the generated project-tree contents.
