@@ -23,31 +23,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: npm
-
       - name: Install locked dependencies
         run: npm ci
-
       - name: Report dependency security advisories
         run: npm run audit:security
-
       - name: Run automated contract tests
         run: npm test
-
       - name: Type check
         run: npm run typecheck
-
       - name: Validate repository files and docs
         run: npm run validate
-
       - name: Build Next.js app
         run: npm run build
-
       - name: Parse YAML metadata
         run: |
           python - <<'PY'
@@ -60,6 +52,5 @@ jobs:
               yaml.safe_load(path.read_text())
               print("Valid YAML:", path)
           PY
-
       - name: Verify Mermaid sources
         run: find docs/diagrams -name '*.mmd' -type f -size +0c -print | grep .
