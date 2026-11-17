@@ -1,0 +1,28 @@
+name: '🔐 Security report'
+description: Report a potential security issue. Use private reporting where possible.
+title: '[Security]: '
+labels: [security]
+body:
+  - type: markdown
+    attributes:
+      value: 'Do not disclose secrets, private code, or exploit details publicly. Prefer GitHub private vulnerability reporting.'
+  - type: textarea
+    id: summary
+    attributes:
+      label: High-level summary without exploit details
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Potential impact
+    validations:
+      required: true
+  - type: input
+    id: affected
+    attributes:
+      label: Affected commit or file
+  - type: textarea
+    id: contact
+    attributes:
+      label: Safe private follow-up route
