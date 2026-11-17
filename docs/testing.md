@@ -2,7 +2,7 @@
 
 ## Automated checks
 
-The repository now uses Node's built-in test runner, so no additional test framework dependency is required.
+The repository uses Node's built-in test runner, so no additional test framework dependency is required.
 
 ```bash
 npm ci
@@ -16,9 +16,9 @@ npm run build
 
 `tests/repository-contract.test.mjs` checks:
 - Package and lockfile name, version, dependencies, development dependencies, and Node engine consistency.
-- Availability of the standard project scripts.
+- Availability of standard project scripts.
 - Node runtime pin consistency with CI.
-- Presence and navigation of the landing and editor routes.
+- Presence and navigation of landing and editor routes.
 - Honest UI labels for local-only editing and sample presence.
 - Separation between the routed UI and the legacy Socket.IO experiment.
 - Landing-page copy that does not promise unavailable live services.
@@ -45,7 +45,7 @@ These tests protect repository contracts and prevent misleading prototype claims
 
 ## CI boundary
 
-The quality workflow runs on pushes, pull requests, and a weekly schedule. It installs the committed lockfile, reports dependency advisories, runs contract tests, type-checks, validates repository files and documentation links, builds the Next.js app, and parses GitHub YAML metadata.
+The quality workflow runs on pushes, pull requests, and a weekly schedule. It installs the committed lockfile, reports dependency advisories, runs contract tests, type-checks, validates repository files and documentation links, builds the Next.js app, parses GitHub YAML metadata, and checks Mermaid files.
 
 A passing type check or production build verifies compilation, not real collaboration, authentication, AI, persistence, accessibility, or data protection. Manual route checks and browser-level tests remain necessary.
 
