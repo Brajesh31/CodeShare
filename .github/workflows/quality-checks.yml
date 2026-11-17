@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: "23 5 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -16,7 +18,7 @@ concurrency:
 
 jobs:
   validate:
-    name: TypeScript, build, and repository checks
+    name: Tests, type check, build, and repository checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,11 +33,17 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
+      - name: Report dependency security advisories
+        run: npm run audit:security
+
+      - name: Run automated contract tests
+        run: npm test
+
       - name: Type check
-        run: npx tsc --noEmit
+        run: npm run typecheck
 
       - name: Validate repository files and docs
-        run: node scripts/validate-repository.mjs
+        run: npm run validate
 
       - name: Build Next.js app
         run: npm run build
