@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const requiredFiles = [
+  ".nvmrc",
   "package.json",
   "package-lock.json",
   "README.md",
@@ -31,11 +32,30 @@ const requiredFiles = [
   "docs/runbooks/README.md",
   "docs/templates/README.md",
   "scripts/README.md",
+  "scripts/audit-dependencies.mjs",
+  "tests/repository-contract.test.mjs",
 ];
 
 const failures = [];
 for (const file of requiredFiles) {
   if (!existsSync(resolve(root, file))) failures.push(`Missing required file: ${file}`);
+}
+
+const manifest = JSON.parse(readFileSync(resolve(root, "package.json"), "utf8"));
+const lock = JSON.parse(readFileSync(resolve(root, "package-lock.json"), "utf8"));
+if (manifest.name !== lock.name || manifest.name !== lock.packages?.[""]?.name) {
+  failures.push("package.json and package-lock.json package names do not match.");
+}
+if (manifest.version !== lock.version || manifest.version !== lock.packages?.[""]?.version) {
+  failures.push("package.json and package-lock.json versions do not match.");
+}
+for (const section of ["dependencies", "devDependencies", "engines"]) {
+  if (JSON.stringify(manifest[section] || {}) !== JSON.stringify(lock.packages?.[""]?.[section] || {})) {
+    failures.push(`package.json and package-lock.json ${section} do not match.`);
+  }
+}
+for (const script of ["dev", "build", "start", "typecheck", "test", "validate", "audit:security"]) {
+  if (!manifest.scripts?.[script]) failures.push(`Missing npm script: ${script}`);
 }
 
 function collectMarkdown(directory, result = []) {
@@ -94,5 +114,5 @@ if (failures.length) {
   console.error(failures.map((failure) => `❌ ${failure}`).join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`✅ Repository validation passed: ${requiredFiles.length} required files, ${new Set(markdownFiles).size} Markdown files, and local links checked.`);
+  console.log(`✅ Repository validation passed: ${requiredFiles.length} required files, package/lock consistency, ${new Set(markdownFiles).size} Markdown files, and local links checked.`);
 }
