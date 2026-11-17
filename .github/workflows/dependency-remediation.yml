@@ -38,6 +38,14 @@ jobs:
       - name: Confirm Next.js patch is selected
         run: node -e "const p=require('./package.json'); const l=require('./package-lock.json'); if(p.dependencies.next!=='15.5.29' || l.packages['node_modules/next']?.version!=='15.5.29') process.exit(1); console.log('Next.js', l.packages['node_modules/next'].version)"
 
+      - name: Remove the one-time remediation workflow from the candidate tree
+        run: git rm .github/workflows/dependency-remediation.yml
+
+      - name: Regenerate and verify the tracked project tree
+        run: |
+          npm run docs:tree
+          npm run docs:tree:check
+
       - name: Run contract tests
         run: npm test
 
