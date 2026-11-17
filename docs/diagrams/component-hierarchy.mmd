@@ -1,0 +1,10 @@
+flowchart TD
+    A[RootLayout] --> B[LandingPage]
+    A --> C[EditorRoute]
+    C --> D[Editor]
+    C --> E[ChatPanel]
+    C --> F[UserPresence]
+    G[EditorApp alternate shell] -. uses .-> D
+    G -. uses .-> E
+    G -. uses .-> F
+    H[Pagebackup legacy experiment] -. not imported by routes .-> I[Socket.IO client]
