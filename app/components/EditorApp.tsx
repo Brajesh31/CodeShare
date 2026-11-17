@@ -20,7 +20,7 @@ const EditorApp: React.FC = () => {
           <div className="flex items-center gap-2">
             <Burger opened={opened} onClick={toggle} size="sm" />
             <Text size="lg" fw={700}>
-              CodeCollab
+              CodeShare
             </Text>
           </div>
           <div className="flex items-center gap-2">
@@ -50,10 +50,10 @@ const EditorApp: React.FC = () => {
       <div className={`border-t px-4 py-2 flex justify-between items-center ${darkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200'}`}>
         <div className="flex items-center gap-2">
           <div className={`px-2 py-1 text-xs rounded ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-            Connected
+            Local demo
           </div>
           <div className={`px-2 py-1 text-xs rounded ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-            3 users online
+            3 sample profiles
           </div>
         </div>
         <Button variant={chatOpened ? 'filled' : 'light'} onClick={toggleChat} leftSection={<MessageSquare size={16} />} size="sm">
