@@ -4,36 +4,53 @@
 
 | Path | Responsibility |
 |---|---|
-| `app/layout.tsx` | Root HTML, Geist font setup, Mantine provider, metadata |
-| `app/page.tsx` | Landing page |
-| `app/editor/page.tsx` | Client editor route entry |
+| app/layout.tsx | Root layout, Geist font setup, Mantine provider, metadata |
+| app/page.tsx | CodeShare landing page and prototype scope |
+| app/editor/page.tsx | Active local workspace route |
 
-## UI components
-
-### EditorApp
-
-`app/components/EditorApp.tsx` lays out the workspace header, sidebar shell, editor, chat visibility, theme state, sample presence, and static connection status. Some state variables/imports are currently unused or scaffolding.
+## Active UI components
 
 ### Editor
 
-`app/components/Editor.tsx` renders sample JavaScript in a `contentEditable` preformatted block. The language dropdown is visual/local state; it does not change parser, syntax highlighting, compiler, or execution behavior. The effect named like a socket connection only logs to the console.
+app/components/Editor.tsx renders sample JavaScript in a contenteditable preformatted block. The language selector changes only the local language label. It does not provide syntax highlighting, language services, parsing, compilation, execution, or synchronization. The footer explicitly indicates that sync is not connected.
 
 ### ChatPanel
 
-`app/components/ChatPanel.tsx` contains Team and AI tabs. Team messages append to local React state. AI messages append locally and then receive a generic hard-coded reply after a timeout. No content is sent to a server or model.
+app/components/ChatPanel.tsx contains Team and AI Preview tabs. Team messages append to local React state. AI Preview appends local messages and returns a fixed canned response after a delay. No message or prompt is sent to a server or model provider.
 
 ### UserPresence
 
-`app/components/UserPresence.tsx` renders a static array of sample users and requests remote avatar images from pravatar.cc. These people are not actual connected collaborators.
+app/components/UserPresence.tsx renders a static list of sample profiles and requests remote images from pravatar.cc. These are not authenticated or connected collaborators.
+
+### Active editor route
+
+app/editor/page.tsx composes Editor, ChatPanel, and UserPresence. It owns workspace theme and chat panel visibility and labels the bottom indicators as a local demo and sample profiles.
+
+## Alternate component shell
+
+app/components/EditorApp.tsx is an alternate or duplicate workspace shell. The active App Router page does not import it as its route component. Avoid adding new route behavior there without first consolidating ownership and confirming all references.
 
 ## Legacy experiment
 
-`pagebackup.tsx` contains a Socket.IO client experiment and is not imported by the App Router. It connects to localhost and emits sample events, but no corresponding server implementation exists in the repository. Treat it as experimental code, not supported runtime behavior.
+pagebackup.tsx is outside the app route tree and is not imported by the active page. It contains a Socket.IO client experiment targeting a local WebSocket URL. No matching server implementation exists. It is not supported runtime behavior.
+
+## State ownership
+
+| State | Owner | Persistence |
+|---|---|---|
+| Editor code | Editor | Component state only |
+| Language label | Editor | Component state only |
+| Theme | Editor route | Component state only |
+| Chat panel visibility | Editor route | Component state only |
+| Team messages | ChatPanel | Component state only |
+| AI Preview messages | ChatPanel | Component state only |
+| Sample presence list | UserPresence | Static source data |
 
 ## Component change checklist
 
-- Keep interactive components client-rendered when they need browser state or event handlers.
-- Keep data flow explicit through typed props.
-- Render chat/editor user content as text, not injected HTML.
-- Remove unused state/imports only with a tested, focused change.
-- Update this file when components are added, removed, or responsibilities change.
+- Keep browser-state components client-rendered.
+- Keep props explicit and narrow.
+- Render user-controlled text as text, not injected HTML.
+- Avoid fake connection logs, indicators, or service calls.
+- Add tests when extracting non-trivial behavior.
+- Update architecture, project structure, and this component inventory whenever ownership or routing changes.
