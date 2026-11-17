@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-import { AppShell, Burger, Group, Text, Button } from '@mantine/core'
+import { Burger, Text, Button } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { MessageSquare, Users, Code, Settings, Moon, Sun } from 'lucide-react'
+import { MessageSquare, Moon, Sun } from 'lucide-react'
 import Editor from '../components/Editor'
 import ChatPanel from '../components/ChatPanel'
 import UserPresence from '../components/UserPresence'
@@ -10,7 +10,6 @@ const EditorApp: React.FC = () => {
   const [opened, { toggle }] = useDisclosure()
   const [chatOpened, setChatOpened] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
-  const [activeTab, setActiveTab] = useState('editor')
   const toggleChat = () => setChatOpened(!chatOpened)
   const toggleTheme = () => setDarkMode(!darkMode)
   return (
