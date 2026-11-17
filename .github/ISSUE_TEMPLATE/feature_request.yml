@@ -1,0 +1,32 @@
+name: '✨ Feature request'
+description: Propose a CodeShare product or engineering improvement
+title: '[Feature]: '
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and proposed behavior
+      description: Separate UI-only changes from backend or service requirements.
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data, privacy, and authorization implications
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
