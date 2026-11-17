@@ -1,0 +1,16 @@
+flowchart TD
+    A[Contributor notices failure] --> B{Failure type}
+    B -->|Install| C[Verify Node and npm]
+    B -->|TypeScript| D[Run npm run typecheck]
+    B -->|Documentation| E[Run npm run validate]
+    B -->|Test| F[Run npm test]
+    B -->|Build| G[Run npm run build]
+    C --> H[Inspect sanitized diagnostic]
+    D --> H
+    E --> H
+    F --> H
+    G --> H
+    H --> I[Reproduce and isolate root cause]
+    I --> J[Fix and add regression test]
+    J --> K[Run full quality suite]
+    K --> L[Review and merge]
