@@ -48,7 +48,7 @@ jobs:
           from pathlib import Path
           import yaml
           roots = [Path(".github/workflows"), Path(".github/ISSUE_TEMPLATE"), Path(".github/DISCUSSION_TEMPLATE")]
-          files = [Path(".github/dependabot.yml")]
+          files = [Path(".github/dependabot.yml"), Path("CITATION.cff")]
           for root in roots:
               files.extend(root.glob("*.yml"))
           for path in files:
