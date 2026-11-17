@@ -1,6 +1,8 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
+import { buildProjectTree } from "./project-tree-lib.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const requiredFiles = [
@@ -36,7 +38,7 @@ const requiredFiles = [
   ".github/ISSUE_TEMPLATE/documentation.yml", ".github/ISSUE_TEMPLATE/security_report.yml",
   ".github/ISSUE_TEMPLATE/accessibility_report.yml", ".github/ISSUE_TEMPLATE/performance_issue.yml",
   ".github/PULL_REQUEST_TEMPLATE.md",
-  "scripts/README.md", "scripts/audit-dependencies.mjs",
+  "scripts/README.md", "scripts/audit-dependencies.mjs", "scripts/generate-project-tree.mjs", "scripts/project-tree-lib.mjs",
   "tests/repository-contract.test.mjs",
 ];
 
@@ -58,7 +60,7 @@ for (const section of ["dependencies", "devDependencies", "engines"]) {
     failures.push(`package.json and package-lock.json ${section} do not match.`);
   }
 }
-for (const script of ["dev", "build", "start", "typecheck", "test", "validate", "audit:security"]) {
+for (const script of ["dev", "build", "start", "typecheck", "test", "validate", "audit:security", "docs:tree", "docs:tree:check"]) {
   if (!manifest.scripts?.[script]) failures.push(`Missing npm script: ${script}`);
 }
 
@@ -107,6 +109,33 @@ const workflows = [
 ];
 for (const workflow of workflows) {
   if (!existsSync(resolve(root, workflow))) failures.push(`Missing workflow: ${workflow}`);
+}
+
+let trackedPaths;
+try {
+  trackedPaths = execFileSync("git", ["ls-files"], {
+    cwd: root,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  }).split(/\\r?\\n/).filter(Boolean);
+} catch (error) {
+  failures.push(`Unable to read Git tracked files: ${error.message}`);
+}
+if (trackedPaths) {
+  const treeDoc = readFileSync(resolve(root, "docs/project-structure.md"), "utf8");
+  const startMarker = "## Complete tracked tree";
+  const endMarker = "This is a tracked-file tree.";
+  const start = treeDoc.indexOf(startMarker);
+  const end = treeDoc.indexOf(endMarker, start);
+  if (start < 0 || end < 0 || end <= start) {
+    failures.push("Project structure guide is missing its tracked-tree section markers.");
+  } else {
+    const expected = buildProjectTree(trackedPaths);
+    const actualSection = treeDoc.slice(start, end);
+    const actualLines = actualSection.split(/\\r?\\n/).slice(2);
+    const actualTree = actualLines.map((line) => line.startsWith("    ") ? line.slice(4) : line).filter(Boolean).join("\\n");
+    if (actualTree !== expected) failures.push("docs/project-structure.md is out of date; run npm run docs:tree.");
+  }
 }
 
 const expectedRoutes = [
