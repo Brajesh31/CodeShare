@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Select, Loader } from '@mantine/core';
+import { Text, Select, Loader } from '@mantine/core';
 interface EditorProps {
   darkMode: boolean;
 }
@@ -8,10 +8,10 @@ const Editor: React.FC<EditorProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState('javascript');
-  const [code, setCode] = useState(`// Welcome to CodeCollab
+  const [code, setCode] = useState(`// Welcome to CodeShare
 // This sample stays in the current browser tab; it is not synchronized.
 function greet(name) {
-  return \`Hello, \${name}! Welcome to our collaborative editor.\`;
+  return \`Hello, \${name}! Welcome to the CodeShare editor preview.\`;
 }
 console.log(greet("Developer"));
 `);
@@ -21,14 +21,6 @@ console.log(greet("Developer"));
       setIsLoading(false);
     }, 1500);
     return () => clearTimeout(timer);
-  }, []);
-  // This would be where we'd connect to WebSockets
-  useEffect(() => {
-    // Simulating WebSocket connection
-    console.log('Connecting to WebSocket server...');
-    return () => {
-      console.log('Disconnecting from WebSocket server...');
-    };
   }, []);
   const handleCodeChange = (newCode: string) => {
     setCode(newCode);
