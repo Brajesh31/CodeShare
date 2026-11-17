@@ -105,13 +105,13 @@ test("project structure generator stays synchronized with Git-tracked paths", as
   const { execFileSync } = await import("node:child_process");
   const { buildProjectTree } = await import("../scripts/project-tree-lib.mjs");
   const tracked = execFileSync("git", ["ls-files"], { encoding: "utf8" })
-    .split(/\\r?\\n/)
+    .split(/\r?\n/)
     .filter(Boolean);
   const doc = read("docs/project-structure.md");
   const start = doc.indexOf("## Complete tracked tree");
   const end = doc.indexOf("This is a tracked-file tree.", start);
   assert.ok(start >= 0 && end > start, "tracked-tree section markers should exist");
   const actualLines = doc.slice(start, end).split(/\\r?\\n/).slice(2);
-  const actual = actualLines.map((line) => line.startsWith("    ") ? line.slice(4) : line).filter(Boolean).join("\\n");
+  const actual = actualLines.map((line) => line.startsWith("    ") ? line.slice(4) : line).filter(Boolean).join("\n");
   assert.equal(actual, buildProjectTree(tracked));
 });
