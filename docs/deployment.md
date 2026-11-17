@@ -1,16 +1,40 @@
 # Deployment
 
-## Current deployment model
+## Current architecture
 
-The project is a Next.js application. Build it with `npm run build`; the production command is `npm start`. Deploy it to a host that supports the Next.js runtime and use that host's current Next.js deployment instructions. No database or separate collaboration backend is defined in this repository.
+CodeShare is a Next.js App Router application. A deployment needs a host capable of running the Next.js production output. The repository does not provide a separate collaboration server or database.
 
-## Before publishing
+## Pre-deployment gates
 
-- Confirm the landing page and `/editor` route render in the production build.
-- Do not present static presence, local chat, or the canned AI reply as working online features.
-- Do not use confidential source code in the prototype; no authentication or server-side room isolation is implemented.
-- Review the external avatar service and font build behavior for privacy and availability requirements.
-- Keep credentials out of `NEXT_PUBLIC_*` values and client code.
-- Add server-side authorization, validation, monitoring, and persistence before deploying a real collaboration product.
+1. Review the current feature/limitation matrix in [product overview](product-overview.md).
+2. Install from the committed lockfile using `npm ci`.
+3. Run `npx tsc --noEmit`.
+4. Run `npm run build`.
+5. Test `/` and `/editor` using a production-like environment.
+6. Confirm there are no secrets in browser code or `NEXT_PUBLIC_*` values.
+7. Review external avatar requests and font build configuration.
+8. Ensure the release notes do not describe mock UI as live collaboration or model-backed AI.
 
-The app has no deployment-specific environment variables or database migrations. `pagebackup.tsx` is an unreferenced local socket experiment and is not a production backend.
+## Runtime
+
+Typical production commands:
+
+```bash
+npm ci
+npm run build
+npm start
+```
+
+The host must use a supported Node.js runtime and configure the start command/port according to its Next.js hosting model.
+
+## Environment variables
+
+No environment variables are currently required by the routed prototype. Do not invent dummy credentials or server endpoints to satisfy a deployment check.
+
+## Rollback
+
+Redeploy a previously verified Next.js build or revert a known problematic commit. See [deployment-rollback.md](runbooks/deployment-rollback.md).
+
+## Not included
+
+No collaboration WebSocket server, auth provider, AI proxy, database, migration, or room storage is deployed by this repository.
