@@ -1,18 +1,19 @@
-MIT License (original project source and documentation scope)
+MIT License (original CodeShare source and documentation only)
 
 Copyright (c) 2026 Brajesh Kumar (@brajesh31)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of the original CodeShare source and documentation authored by Brajesh Kumar
-(@brajesh31) in this repository, including original application files under
-app/, pagebackup.tsx, README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md,
-SECURITY.md, CHANGELOG.md, SUPPORT.md, ROADMAP.md, CODEOWNERS, CITATION.cff,
-.gitattributes, .gitignore, .editorconfig, .env.example, and files under
-docs/, to deal in those materials without restriction, including without
-limitation the rights to use, copy, modify, merge, publish, distribute,
-sublicense, and/or sell copies of those materials, and to permit persons to
-whom those materials are furnished to do so, subject to the following
-conditions:
+of the original CodeShare source code and documentation authored by Brajesh
+Kumar (@brajesh31) in this repository, including original project-authored
+application files under app/, pagebackup.tsx, scripts/, tests/, README.md,
+CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, PRIVACY.md, GOVERNANCE.md,
+ACKNOWLEDGMENTS.md, CHANGELOG.md, SUPPORT.md, ROADMAP.md, CODEOWNERS,
+CITATION.cff, .gitattributes, .gitignore, .editorconfig, .env.example, and
+files under docs/, to deal in those materials without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of those materials, and to permit
+persons to whom those materials are furnished to do so, subject to the
+following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of those materials.
@@ -25,6 +26,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE
 MATERIALS.
 
-This grant excludes Next.js and other framework boilerplate, public starter
-icons, third-party fonts, external avatar images, npm dependencies, and other
-third-party material. Those materials remain under their respective licenses.
+This grant excludes Next.js starter material and framework boilerplate,
+third-party dependencies, generated or template icons, external avatar images,
+third-party fonts, and all other content not authored by Brajesh Kumar. Such
+material remains under its respective license or terms. This notice does not
+replace or override any third-party license.
