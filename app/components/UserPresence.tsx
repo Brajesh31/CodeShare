@@ -15,7 +15,7 @@ const UserPresence: React.FC = () => {
     color: 'purple'
   }];
   return <Group gap="xs">
-      {onlineUsers.map(user => <Tooltip key={user.id} label={user.name} withArrow position="bottom">
+      {onlineUsers.map(user => <Tooltip key={user.id} label={user.id === 1 ? 'You (local demo)' : `Sample profile: ${user.name}`} withArrow position="bottom">
           <Avatar size="sm" radius="xl" color={user.color} src={user.id !== 1 ? `https://i.pravatar.cc/150?u=${user.id}` : undefined}>
             {user.name.charAt(0)}
           </Avatar>
