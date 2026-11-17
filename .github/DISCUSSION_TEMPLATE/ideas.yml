@@ -1,0 +1,32 @@
+title: "💡 Idea: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share a problem and a proposed direction. Ideas are not commitments or accepted features.
+  - type: textarea
+    attributes:
+      label: Problem or user need
+      description: What task is difficult today, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed idea
+      description: Describe the smallest useful improvement.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives and trade-offs
+      description: What else could solve the problem?
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: Scope and safety
+      options:
+        - label: I have not included secrets, personal data, or confidential code.
+          required: true
+        - label: I understand this prototype does not provide real-time collaboration or private rooms.
+          required: true
