@@ -10,7 +10,9 @@ Run from the repository root with Node.js 22 and npm.
 | `npm start` | Serve the production build |
 | `npm test` | Run Node built-in tests |
 | `npm run typecheck` | Run TypeScript without output |
-| `npm run validate` | Validate repository contracts and Markdown local links |
+| `npm run validate` | Validate required files, package/lock metadata, routes, tracked tree, and Markdown local links |
+| `npm run docs:tree` | Regenerate the documented tracked-file tree |
+| `npm run docs:tree:check` | Verify the documented tree matches Git-tracked paths |
 | `npm run audit:security` | Summarize npm audit severity counts |
 
 ## Local workflow
