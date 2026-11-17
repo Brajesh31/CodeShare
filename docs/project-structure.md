@@ -170,6 +170,8 @@
     │   └── window.svg
     ├── scripts/
     │   ├── audit-dependencies.mjs
+    │   ├── generate-project-tree.mjs
+    │   ├── project-tree-lib.mjs
     │   ├── README.md
     │   └── validate-repository.mjs
     ├── tests/
