@@ -17,7 +17,7 @@ This list is based on source inspection and repository contract tests, not a com
 | External avatars | pravatar.cc URLs | External availability/privacy dependency |
 | Browser testing | Contract tests only | No automated browser-level interaction or accessibility checks |
 | Linting | No standalone ESLint config or lint script | Dedicated static lint rules remain future work |
-| Dependency security | npm audit currently reports advisories | Runtime dependency updates and verification are required |
+| Dependency security | npm audit reported 8 advisories, including one critical and six high; Next.js is pinned to 15.3.1 | Upgrade framework/dependency tree and verify with npm audit before production |
 
 ## Priority recommendations
 
