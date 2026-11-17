@@ -1,0 +1,16 @@
+flowchart TD
+  Client[Browser client] --> Auth[Identity and session service]
+  Client --> Gateway[Authorized realtime gateway]
+  Gateway --> RoomAuth[Server-side room authorization]
+  RoomAuth --> Events[Validated collaboration events]
+  Events --> Sync[Document synchronization service]
+  Events --> Presence[Presence and disconnect handling]
+  Events --> Chat[Chat service]
+  Sync --> Storage[(Authorized document storage)]
+  Chat --> MessageStore[(Message retention store)]
+  Client --> AIProxy[Server-side AI proxy]
+  AIProxy --> Policy[Provider policy, secrets, redaction]
+  Policy --> Provider[Approved model provider]
+  Storage --> Audit[Audit and retention controls]
+  MessageStore --> Audit
+  note["PROPOSED ONLY: no components in this diagram currently exist in the repository"]
