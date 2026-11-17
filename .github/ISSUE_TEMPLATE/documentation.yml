@@ -1,0 +1,53 @@
+name: "📚 Documentation improvement"
+description: Report an inaccurate, missing, or unclear project document
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report documentation issues with a concrete location and correction suggestion. Do not include secrets or confidential material.
+  - type: input
+    id: document
+    attributes:
+      label: Document or path
+      description: File path or documentation URL
+      placeholder: docs/project-structure.md
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Issue type
+      options:
+        - Incorrect information
+        - Missing explanation
+        - Broken link
+        - Outdated command or version
+        - Typo or clarity
+        - Missing diagram or example
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing?
+      description: Explain what a reader cannot understand or do.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested correction
+      description: Provide a specific proposed fix, where possible.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the current document and linked references.
+          required: true
+        - label: I removed secrets and private data from this report.
+          required: true
