@@ -1,0 +1,26 @@
+flowchart LR
+  subgraph Browser
+    User[User]
+    Client[Client-rendered UI]
+    Local[Local editor and chat state]
+  end
+  subgraph External
+    Avatar[pravatar.cc avatar images]
+    Fonts[Next font build-time assets]
+  end
+  subgraph MissingServices[Not implemented]
+    Auth[Authentication]
+    API[Authorized API]
+    Socket[Realtime server]
+    DB[(Database)]
+    AI[Model provider proxy]
+  end
+  User --> Client
+  Client --> Local
+  Client --> Avatar
+  Client -. build dependency .-> Fonts
+  Client -. no connection .-> Auth
+  Client -. no connection .-> API
+  Client -. no connection .-> Socket
+  API -. absent .-> DB
+  API -. absent .-> AI
