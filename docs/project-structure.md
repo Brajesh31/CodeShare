@@ -120,6 +120,7 @@
     │   ├── component-architecture.md
     │   ├── components.md
     │   ├── configuration.md
+    │   ├── data-deletion.md
     │   ├── data-flow.md
     │   ├── data-privacy.md
     │   ├── data-protection.md
@@ -135,6 +136,7 @@
     │   ├── design-tokens.md
     │   ├── developer-guide.md
     │   ├── development.md
+    │   ├── disaster-recovery.md
     │   ├── encryption.md
     │   ├── environment-variables.md
     │   ├── error-handling.md
@@ -143,6 +145,7 @@
     │   ├── functional-requirements.md
     │   ├── getting-started.md
     │   ├── glossary.md
+    │   ├── health-checks.md
     │   ├── hosting.md
     │   ├── incident-response.md
     │   ├── infrastructure.md
@@ -152,12 +155,15 @@
     │   ├── known-issues.md
     │   ├── maintainer-guide.md
     │   ├── maintenance.md
+    │   ├── monitoring.md
     │   ├── navigation-structure.md
     │   ├── non-functional-requirements.md
+    │   ├── operations.md
     │   ├── performance.md
     │   ├── privacy.md
     │   ├── problem-statement.md
     │   ├── product-overview.md
+    │   ├── production-setup.md
     │   ├── project-background.md
     │   ├── project-objectives.md
     │   ├── project-structure.md
@@ -169,12 +175,15 @@
     │   ├── scope-and-limitations.md
     │   ├── screen-reader-support.md
     │   ├── secret-management.md
+    │   ├── security-architecture.md
+    │   ├── security-risk-register.md
     │   ├── security-testing.md
     │   ├── security.md
     │   ├── solution-overview.md
     │   ├── technical-debt.md
     │   ├── technical-overview.md
     │   ├── technology-stack.md
+    │   ├── test-coverage.md
     │   ├── test-strategy.md
     │   ├── testing.md
     │   ├── third-party-services.md
