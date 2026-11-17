@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor Visitor
+    participant Panel as ChatPanel
+    participant State as React state
+    Visitor->>Panel: Open chat
+    Panel->>State: Initialize sample messages
+    Visitor->>Panel: Enter team message
+    Panel->>State: Append local message
+    State-->>Panel: Render updated list
+    Note over Panel,State: No server or other participant receives this message
+    Visitor->>Panel: Select AI Preview
+    Visitor->>Panel: Submit preview prompt
+    Panel->>State: Append user message
+    Panel->>State: Append fixed demo response after delay
